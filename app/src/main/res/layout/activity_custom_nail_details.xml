@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9FF">
+
+    <RelativeLayout
+        android:id="@+id/layout_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingHorizontal="16dp">
+        <ImageView
+            android:id="@+id/btn_back_details"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back"
+            app:tint="#1A1C29"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Custom Nail"
+            android:textColor="#1A1C29"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_bold"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_top_bar"
+        android:layout_above="@+id/btn_next_details"
+        android:scrollbars="none"
+        android:paddingHorizontal="20dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="24dp">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#5A55CA" android:text="✓" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Shape" android:textColor="#5A55CA" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+                <View android:layout_width="40dp" android:layout_height="2dp" android:background="#5A55CA"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#5A55CA" android:text="✓" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Color" android:textColor="#5A55CA" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+                <View android:layout_width="40dp" android:layout_height="2dp" android:background="#5A55CA"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#5A55CA" android:text="3" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Details" android:textColor="#5A55CA" android:textSize="11sp" android:fontFamily="@font/poppins_bold" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+                <View android:layout_width="40dp" android:layout_height="2dp" android:background="#EFEFFF"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#EFEFFF" android:text="4" android:textColor="#8A8A93" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Review" android:textColor="#8A8A93" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Select Preset Size" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="3" android:layout_marginBottom="24dp">
+                <Button android:id="@+id/btn_size_s" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:text="Size S" android:textColor="#1A1C29" android:background="@drawable/bg_button_outline" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:layout_marginRight="6dp"/>
+                <Button android:id="@+id/btn_size_m" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:text="Size M" android:textColor="#FFFFFF" android:background="@drawable/bg_button_rounded" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:layout_marginHorizontal="3dp"/>
+                <Button android:id="@+id/btn_size_l" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:text="Size L" android:textColor="#1A1C29" android:background="@drawable/bg_button_outline" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:layout_marginLeft="6dp"/>
+            </LinearLayout>
+
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Customize Per Finger (mm)"
+                    android:textColor="#1A1C29"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/btn_show_guide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="Lihat Panduan ↗"
+                    android:textColor="#5A55CA"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:clickable="true"
+                    android:focusable="true"/>
+            </RelativeLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card_menu" android:padding="16dp" android:layout_marginBottom="24dp">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="48dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Thumb (Ibu Jari)" android:textColor="#1A1C29" android:fontFamily="@font/poppins_medium" android:layout_centerVertical="true"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:gravity="center_vertical" android:orientation="horizontal">
+                        <Button android:id="@+id/btn_minus_thumb" android:layout_width="32dp" android:layout_height="32dp" android:text="-" android:textSize="16sp" android:textColor="#5A55CA" android:background="@drawable/bg_button_outline" android:padding="0dp"/>
+                        <TextView android:id="@+id/tv_val_thumb" android:layout_width="40dp" android:layout_height="wrap_content" android:text="14" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:gravity="center"/>
+                        <Button android:id="@+id/btn_plus_thumb" android:layout_width="32dp" android:layout_height="32dp" android:text="+" android:textSize="16sp" android:textColor="#5A55CA" android:background="@drawable/bg_button_outline" android:padding="0dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Index (Telunjuk)" android:textColor="#1A1C29" android:fontFamily="@font/poppins_medium" android:layout_centerVertical="true"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:gravity="center_vertical" android:orientation="horizontal">
+                        <Button android:id="@+id/btn_minus_index" android:layout_width="32dp" android:layout_height="32dp" android:text="-" android:textSize="16sp" android:textColor="#5A55CA" android:background="@drawable/bg_button_outline" android:padding="0dp"/>
+                        <TextView android:id="@+id/tv_val_index" android:layout_width="40dp" android:layout_height="wrap_content" android:text="10" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:gravity="center"/>
+                        <Button android:id="@+id/btn_plus_index" android:layout_width="32dp" android:layout_height="32dp" android:text="+" android:textSize="16sp" android:textColor="#5A55CA" android:background="@drawable/bg_button_outline" android:padding="0dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Middle (Tengah)" android:textColor="#1A1C29" android:fontFamily="@font/poppins_medium" android:layout_centerVertical="true"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:gravity="center_vertical" android:orientation="horizontal">
+                        <Button android:id="@+id/btn_minus_middle" android:layout_width="32dp" android:layout_height="32dp" android:text="-" android:textSize="16sp" android:textColor="#5A55CA" android:background="@drawable/bg_button_outline" android:padding="0dp"/>
+                        <TextView android:id="@+id/tv_val_middle" android:layout_width="40dp" android:layout_height="wrap_content" android:text="11" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:gravity="center"/>
+                        <Button android:id="@+id/btn_plus_middle" android:layout_width="32dp" android:layout_height="32dp" android:text="+" android:textSize="16sp" android:textColor="#5A55CA" android:background="@drawable/bg_button_outline" android:padding="0dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ring (Manis)" android:textColor="#1A1C29" android:fontFamily="@font/poppins_medium" android:layout_centerVertical="true"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:gravity="center_vertical" android:orientation="horizontal">
+                        <Button android:id="@+id/btn_minus_ring" android:layout_width="32dp" android:layout_height="32dp" android:text="-" android:textSize="16sp" android:textColor="#5A55CA" android:background="@drawable/bg_button_outline" android:padding="0dp"/>
+                        <TextView android:id="@+id/tv_val_ring" android:layout_width="40dp" android:layout_height="wrap_content" android:text="10" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:gravity="center"/>
+                        <Button android:id="@+id/btn_plus_ring" android:layout_width="32dp" android:layout_height="32dp" android:text="+" android:textSize="16sp" android:textColor="#5A55CA" android:background="@drawable/bg_button_outline" android:padding="0dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pinky (Kelingking)" android:textColor="#1A1C29" android:fontFamily="@font/poppins_medium" android:layout_centerVertical="true"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:gravity="center_vertical" android:orientation="horizontal">
+                        <Button android:id="@+id/btn_minus_pinky" android:layout_width="32dp" android:layout_height="32dp" android:text="-" android:textSize="16sp" android:textColor="#5A55CA" android:background="@drawable/bg_button_outline" android:padding="0dp"/>
+                        <TextView android:id="@+id/tv_val_pinky" android:layout_width="40dp" android:layout_height="wrap_content" android:text="8" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:gravity="center"/>
+                        <Button android:id="@+id/btn_plus_pinky" android:layout_width="32dp" android:layout_height="32dp" android:text="+" android:textSize="16sp" android:textColor="#5A55CA" android:background="@drawable/bg_button_outline" android:padding="0dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Special Custom Request Notes" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
+            <EditText
+                android:id="@+id/et_special_notes"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/bg_card_menu"
+                android:gravity="top|left"
+                android:padding="14dp"
+                android:hint="Contoh: Tambahkan inisial huruf 'D' di kuku jari manis tangan kanan ya sis..."
+                android:textColorHint="#8A8A93"
+                android:textColor="#1A1C29"
+                android:textSize="13sp"
+                android:fontFamily="@font/poppins_medium"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginBottom="40dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_next_details"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:text="Next to Review"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_bold"
+        android:background="@drawable/bg_button_rounded" />
+
+</RelativeLayout>

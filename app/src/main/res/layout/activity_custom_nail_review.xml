@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9FF">
+
+    <RelativeLayout
+        android:id="@+id/layout_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingHorizontal="16dp">
+        <ImageView
+            android:id="@+id/btn_back_review"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back"
+            app:tint="#1A1C29"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Review Order"
+            android:textColor="#1A1C29"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_bold"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_top_bar"
+        android:layout_above="@+id/btn_confirm_order"
+        android:scrollbars="none"
+        android:paddingHorizontal="20dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="24dp">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#5A55CA" android:text="✓" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Shape" android:textColor="#5A55CA" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+                <View android:layout_width="40dp" android:layout_height="2dp" android:background="#5A55CA"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#5A55CA" android:text="✓" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Color" android:textColor="#5A55CA" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+                <View android:layout_width="40dp" android:layout_height="2dp" android:background="#5A55CA"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#5A55CA" android:text="✓" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Details" android:textColor="#5A55CA" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+                <View android:layout_width="40dp" android:layout_height="2dp" android:background="#5A55CA"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#5A55CA" android:text="4" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Review" android:textColor="#5A55CA" android:textSize="11sp" android:fontFamily="@font/poppins_bold" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your Custom Nail Design" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card_menu" android:padding="18dp" android:layout_marginBottom="20dp">
+
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nail Shape &amp; Length" android:textColor="#8A8A93" android:textSize="13sp" android:fontFamily="@font/poppins_medium"/>
+                    <TextView android:id="@+id/tv_summary_shape" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:text="Almond (Medium)" android:textColor="#1A1C29" android:textSize="14sp" android:fontFamily="@font/poppins_bold"/>
+                </RelativeLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F4F3FF" android:layout_marginBottom="14dp"/>
+
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Color Type" android:textColor="#8A8A93" android:textSize="13sp" android:fontFamily="@font/poppins_medium"/>
+                    <TextView android:id="@+id/tv_summary_color_type" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:text="Ombre Style" android:textColor="#1A1C29" android:textSize="14sp" android:fontFamily="@font/poppins_bold"/>
+                </RelativeLayout>
+
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Main Color Base" android:textColor="#8A8A93" android:textSize="13sp" android:fontFamily="@font/poppins_medium" android:layout_centerVertical="true"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:gravity="center_vertical" android:orientation="horizontal">
+                        <View android:id="@+id/view_summary_color_preview" android:layout_width="18dp" android:layout_height="18dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#FFA8A8" android:layout_marginRight="8dp"/>
+                        <TextView android:id="@+id/tv_summary_color_hex" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="#FFA8A8" android:textColor="#1A1C29" android:textSize="14sp" android:fontFamily="@font/poppins_bold"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F4F3FF" android:layout_marginBottom="14dp"/>
+
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Texture Finish" android:textColor="#8A8A93" android:textSize="13sp" android:fontFamily="@font/poppins_medium"/>
+                    <TextView android:id="@+id/tv_summary_finish" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:text="Glossy Top Polish" android:textColor="#1A1C29" android:textSize="14sp" android:fontFamily="@font/poppins_bold"/>
+                </RelativeLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F4F3FF" android:layout_marginBottom="14dp"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nail Art Add-ons Selected:" android:textColor="#8A8A93" android:textSize="13sp" android:fontFamily="@font/poppins_medium" android:layout_marginBottom="6dp"/>
+                    <TextView android:id="@+id/tv_summary_addons" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Charms, Pearls, 3D Flower" android:textColor="#5A55CA" android:textSize="14sp" android:fontFamily="@font/poppins_bold"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nail Size Matrix Details" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card_menu" android:padding="18dp" android:layout_marginBottom="20dp">
+                <TextView android:id="@+id/tv_summary_sizing" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Preset: Size M (14-10-11-10-8mm)" android:textColor="#1A1C29" android:textSize="14sp" android:fontFamily="@font/poppins_bold"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your Special Instructions" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card_menu" android:padding="18dp" android:layout_marginBottom="20dp">
+                <TextView android:id="@+id/tv_summary_notes" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Tidak ada instruksi khusus tambahan." android:textColor="#1A1C29" android:textSize="13sp" android:fontFamily="@font/poppins_medium" android:textStyle="italic"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Uploaded Photo Reference" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginBottom="35dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+                <ImageView
+                    android:id="@+id/img_summary_reference"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/for_you"
+                    android:scaleType="centerCrop"/>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_confirm_order"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:text="Confirm Custom Design"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_bold"
+        android:background="@drawable/bg_button_rounded" />
+
+</RelativeLayout>

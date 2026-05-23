@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Nailzbynut" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#5A55CA</item>
+        <item name="colorPrimaryVariant">#7A75F0</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:statusBarColor">#EFEFFF</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

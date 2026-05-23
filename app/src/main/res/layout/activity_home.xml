@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9FF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_user_greeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hi, Nut!"
+                    android:textColor="#3F51B5"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/fredoka_bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Let's find your perfect nail today ✨"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#777777"/>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@android:drawable/ic_popup_reminder"/>
+        </RelativeLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="Search nail art, color, style..."
+            android:paddingStart="16dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="16dp"
+            android:background="#D1CFFF"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:weightSum="2">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NEW COLLECTION"
+                    android:textSize="10sp"
+                    android:textColor="#7A75F0"
+                    android:fontFamily="@font/poppins_bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dreamy Lavender"
+                    android:textSize="16sp"
+                    android:textColor="#222222"
+                    android:fontFamily="@font/fredoka_bold"/>
+                <Button
+                    android:id="@+id/btnShopBanner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Shop Now"
+                    android:textSize="10sp"
+                    android:backgroundTint="#7A75F0"
+                    android:textColor="#FFFFFF"
+                    android:padding="0dp"/>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:src="@drawable/nail1"
+                android:scaleType="centerCrop"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Our Services"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="#222222"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center">
+            <Button
+                android:id="@+id/btnNavExplore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explore List"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#EFEFFF"
+                android:textColor="#7A75F0"/>
+            <Button
+                android:id="@+id/btnNavCustom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom Nail Art"
+                android:backgroundTint="#7A75F0"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Best Sellers"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="#222222"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="See All"
+                android:textColor="#7A75F0"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/poppins_medium"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/nail1"/>
+
+    </LinearLayout>
+</ScrollView>
