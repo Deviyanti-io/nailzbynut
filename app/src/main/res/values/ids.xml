@@ -82,4 +82,5 @@
     <item name="et_username" type="id" />
     <item name="tv_user_greeting" type="id" />
     <item name="edt_password" type="id" />
+    <item name="bottom_navigation" type="id" />
 </resources>

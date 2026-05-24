@@ -1,73 +1,109 @@
 package com.example.nailzbynut;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.cardview.widget.CardView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainNavigationActivity extends AppCompatActivity {
 
-    private LinearLayout btnNavHome, btnNavExplore, btnNavProfile;
+    private ScrollView layoutHomePage;
+    private LinearLayout layoutProfilePage;
+    private TextView tvWelcomeUser, tvProfileName, tvProfileEmail;
+    private CardView menuGelNail, menuPressOnNail, menuManicure;
+    private BottomNavigationView bottomNavigation;
+    private Button btnLogout;
     private String currentUsername = "Putri Deviyanti";
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_navigation);
 
-        // Ambil nama dari LoginActivity
+        // 1. Ambil nama kiriman dari Login
         if (getIntent().getStringExtra("USER_NAME") != null && !getIntent().getStringExtra("USER_NAME").isEmpty()) {
             currentUsername = getIntent().getStringExtra("USER_NAME");
         }
 
-        // Hubungkan ID komponen menu bawah dari activity_main_navigation.xml
-        btnNavHome = findViewById(R.id.btn_nav_home);
-        btnNavExplore = findViewById(R.id.btn_nav_explore);
-        btnNavProfile = findViewById(R.id.btn_nav_profile);
+        // 2. Koneksikan ID XML asli dengan Java
+        layoutHomePage = findViewById(R.id.layout_home_page);
+        layoutProfilePage = findViewById(R.id.layout_profile_page);
+        tvWelcomeUser = findViewById(R.id.tv_welcome_user);
+        tvProfileName = findViewById(R.id.tv_profile_name);
+        tvProfileEmail = findViewById(R.id.tv_profile_email);
 
-        // Muat HomeFragment secara otomatis di awal masuk aplikasi
-        if (savedInstanceState == null) {
-            HomeFragment homeFragment = new HomeFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString("NAME_BUNDLE", currentUsername);
-            homeFragment.setArguments(bundle);
-            loadFragment(homeFragment);
-        }
+        menuGelNail = findViewById(R.id.menu_gel_nail);
+        menuPressOnNail = findViewById(R.id.menu_press_on_nail);
+        menuManicure = findViewById(R.id.menu_manicure);
+        bottomNavigation = findViewById(R.id.bottom_navigation);
+        btnLogout = findViewById(R.id.btn_logout);
 
-        // Aksi klik menu Home
-        if (btnNavHome != null) {
-            btnNavHome.setOnClickListener(v -> {
-                HomeFragment hFrag = new HomeFragment();
-                Bundle b = new Bundle();
-                b.putString("NAME_BUNDLE", currentUsername);
-                hFrag.setArguments(b);
-                loadFragment(hFrag);
+        // 3. Ambil data Email Registrasi asli dari memori lokal HP
+        SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        String savedEmail = sharedPref.getString("SAVED_EMAIL", "deviyanti@gmail.com");
+
+        // 4. Set teks data secara dinamis ke halaman
+        if (tvWelcomeUser != null) tvWelcomeUser.setText("Hi, " + currentUsername + "! 👋");
+        if (tvProfileName != null) tvProfileName.setText(currentUsername);
+        if (tvProfileEmail != null) tvProfileEmail.setText(savedEmail);
+
+        // 5. Logika klik pengerjaan menu kuku (Mengarahkan Press On ke CustomNailShapeActivity)
+        if (menuPressOnNail != null) {
+            menuPressOnNail.setOnClickListener(v -> {
+                Intent intent = new Intent(MainNavigationActivity.this, CustomNailShapeActivity.class);
+                startActivity(intent);
             });
         }
 
-        // Aksi klik menu Explore
-        if (btnNavExplore != null) {
-            btnNavExplore.setOnClickListener(v -> loadFragment(new ExploreFragment()));
+        if (menuGelNail != null) {
+            menuGelNail.setOnClickListener(v -> {
+                Toast.makeText(MainNavigationActivity.this, "Gel Nail service selected!", Toast.LENGTH_SHORT).show();
+            });
         }
 
-        // Aksi klik menu Profile
-        if (btnNavProfile != null) {
-            btnNavProfile.setOnClickListener(v -> loadFragment(new ProfileFragment()));
+        if (menuManicure != null) {
+            menuManicure.setOnClickListener(v -> {
+                Toast.makeText(MainNavigationActivity.this, "Manicure service selected!", Toast.LENGTH_SHORT).show();
+            });
         }
-    }
 
-    private void loadFragment(Fragment fragment) {
-        if (fragment != null) {
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            if (findViewById(R.id.fragment_container) != null) {
-                ft.replace(R.id.fragment_container, fragment);
-                ft.commit();
-            }
+        // 6. HIDUPKAN NAVIGASI BOTTOM BAR
+        if (bottomNavigation != null) {
+            bottomNavigation.setOnItemSelectedListener(item -> {
+                int id = item.getItemId();
+
+                if (id == R.id.nav_home) {
+                    layoutHomePage.setVisibility(View.VISIBLE);
+                    layoutProfilePage.setVisibility(View.GONE);
+                    return true;
+                } else if (id == R.id.nav_explore) {
+                    // PERBAIKAN: Mengganti ExploreActivity yang eror menjadi pemberitahuan Toast
+                    Toast.makeText(MainNavigationActivity.this, "Explore Menu Clicked! ✨", Toast.LENGTH_SHORT).show();
+                    return true;
+                } else if (id == R.id.nav_profile) {
+                    layoutHomePage.setVisibility(View.GONE);
+                    layoutProfilePage.setVisibility(View.VISIBLE);
+                    return true;
+                }
+                return false;
+            });
+        }
+
+        // 7. Logika Tombol Keluar Akun
+        if (btnLogout != null) {
+            btnLogout.setOnClickListener(v -> {
+                Intent intent = new Intent(MainNavigationActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            });
         }
     }
 }

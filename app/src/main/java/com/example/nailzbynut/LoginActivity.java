@@ -42,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
                 if (inputName.equalsIgnoreCase(savedUsername) && inputPass.equals(savedPassword)) {
                     Toast.makeText(this, "Login Berhasil! 💖", Toast.LENGTH_SHORT).show();
 
-                    // DIAKTIFKAN MENUJU MAIN NAVIGATION (Bukan HomeActivity lama)
                     Intent intent = new Intent(LoginActivity.this, MainNavigationActivity.class);
                     intent.putExtra("USER_NAME", inputName);
                     startActivity(intent);
