@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.nailzbynut">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -15,7 +14,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,18 +23,52 @@
         </activity>
 
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".SignUpActivity"
             android:exported="false" />
 
         <activity
-            android:name=".MainNavigationActivity"
+            android:name=".HomeActivity"
             android:exported="false" />
 
-        <activity android:name=".CustomNailColorActivity" android:exported="false" />
-        <activity android:name=".CustomNailDetailsActivity" android:exported="false" />
-        <activity android:name=".CustomNailReviewActivity" android:exported="false" />
-        <activity android:name=".CustomNailShapeActivity" android:exported="false" />
-        <activity android:name=".SplashActivity" android:exported="false" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ExploreActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ServicesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CustomNailShapeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CustomNailColorActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CustomNailDetailsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CustomNailReviewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".BookingAppointmentActivity"
+            android:exported="false" />
 
     </application>
 

@@ -86,4 +86,15 @@
     <item name="btn_date_1" type="id" />
     <item name="btn_back_booking" type="id" />
     <item name="btn_date_2" type="id" />
+    <item name="et_email" type="id" />
+    <item name="et_password" type="id" />
+    <item name="tv_register_link" type="id" />
+    <item name="btn_sign_up" type="id" />
+    <item name="tv_login_link" type="id" />
+    <item name="btn_next_to_color" type="id" />
+    <item name="btn_next_to_details" type="id" />
+    <item name="btn_next_to_review" type="id" />
+    <item name="btn_confirm_to_booking" type="id" />
+    <item name="btn_submit_booking" type="id" />
+    <item name="btn_view_history" type="id" />
 </resources>
