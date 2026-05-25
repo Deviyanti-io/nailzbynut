@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -28,10 +29,10 @@ public class CustomNailColorActivity extends AppCompatActivity {
     private View[] circles = new View[29];
 
     private String selectedColorType = "Solid";
-    private String selectedColorHex = "#D6001C"; // Default merah biar tidak null
+    private String selectedColorHex = "#D6001C";
     private String selectedFinish = "Glossy";
     private ArrayList<String> selectedAddonsList = new ArrayList<>();
-    private String dataShape = "Almond", dataLength = "Medium"; // Default isi amandemen
+    private String dataShape = "Almond", dataLength = "Medium";
 
     private String selectedImageUriString = "";
     private ActivityResultLauncher<Intent> galleryLauncher;
@@ -89,8 +90,19 @@ public class CustomNailColorActivity extends AppCompatActivity {
         initCircleViews();
         btnBack.setOnClickListener(v -> finish());
 
+        // Jalankan render awal secara dinamis agar warna tema premium langsung aktif melengkung bulat
         updateColorTypeState("Solid");
         updateFinishState("Glossy");
+
+        // Set Container Upload agar melengkung rapi sejak awal dibuka
+        if (btnUploadPhoto != null) {
+            GradientDrawable uploadShape = new GradientDrawable();
+            uploadShape.setShape(GradientDrawable.RECTANGLE);
+            uploadShape.setCornerRadius(32f);
+            uploadShape.setColor(Color.WHITE);
+            uploadShape.setStroke(2, Color.parseColor("#E0E0E0"));
+            btnUploadPhoto.setBackground(uploadShape);
+        }
 
         galleryLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -171,22 +183,21 @@ public class CustomNailColorActivity extends AppCompatActivity {
     private void updateColorTypeState(String type) {
         selectedColorType = type;
         Button[] tabs = {btnTypeSolid, btnTypeGradient, btnTypeFrench, btnTypeCatEye};
+
+        // Reset warna dasar tab dengan properti TintList khusus agar Material 3 tidak membajaknya jadi ungu
         for (Button b : tabs) {
             if (b != null) {
-                b.setBackgroundResource(R.drawable.bg_button_outline);
-                b.setTextColor(Color.parseColor("#1A1C29"));
+                setTabButtonStyle(b, "#FFFFFF", "#222222", false);
             }
         }
 
-        // PENGIKUT LOGIKA PROTEKSI AMAN (Biar Ombre tidak Null Pointer Crash)
         Button active = btnTypeSolid;
         if (type.equals("Ombre") && btnTypeGradient != null) active = btnTypeGradient;
         else if (type.equals("French Tip") && btnTypeFrench != null) active = btnTypeFrench;
         else if (type.equals("Cat Eye") && btnTypeCatEye != null) active = btnTypeCatEye;
 
         if (active != null) {
-            active.setBackgroundResource(R.drawable.bg_button_rounded);
-            active.setTextColor(Color.WHITE);
+            setTabButtonStyle(active, "#7A75F0", "#FFFFFF", true);
         }
 
         String[] targetList = type.equals("Solid") ? solidList : type.equals("Ombre") ? gradientList : type.equals("French Tip") ? frenchList : catEyeList;
@@ -197,47 +208,65 @@ public class CustomNailColorActivity extends AppCompatActivity {
         }
     }
 
+    private void setTabButtonStyle(Button button, String bgColorHex, String textColorHex, boolean isActive) {
+        GradientDrawable shape = new GradientDrawable();
+        shape.setShape(GradientDrawable.RECTANGLE);
+        shape.setCornerRadius(24f);
+        shape.setColor(Color.parseColor(bgColorHex));
+        if (!isActive) {
+            shape.setStroke(2, Color.parseColor("#E0E0E0"));
+        }
+        button.setBackground(shape);
+        button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(bgColorHex)));
+        button.setTextColor(Color.parseColor(textColorHex));
+    }
+
     private void updateFinishState(String type) {
         selectedFinish = type;
         LinearLayout[] buttons = {btnGlossy, btnMatte, btnChrome, btnGlitter};
         for (LinearLayout btn : buttons) {
             if (btn != null) {
-                btn.setBackgroundColor(Color.WHITE);
-                ((TextView) btn.getChildAt(1)).setTextColor(Color.parseColor("#1A1C29"));
-                if (btn.getChildAt(0) instanceof ImageView) {
-                    ((ImageView) btn.getChildAt(0)).setImageTintList(ColorStateList.valueOf(Color.parseColor("#1A1C29")));
-                }
+                setCardStyle(btn, "#FFFFFF", "#222222", false);
             }
         }
 
         LinearLayout active = type.equals("Glossy") ? btnGlossy : type.equals("Matte") ? btnMatte : type.equals("Chrome") ? btnChrome : btnGlitter;
         if (active != null) {
-            active.setBackgroundColor(Color.parseColor("#F4F3FF"));
-            ((TextView) active.getChildAt(1)).setTextColor(Color.parseColor("#5A55CA"));
-            if (active.getChildAt(0) instanceof ImageView) {
-                ((ImageView) active.getChildAt(0)).setImageTintList(ColorStateList.valueOf(Color.parseColor("#5A55CA")));
-            }
+            setCardStyle(active, "#7A75F0", "#FFFFFF", true);
         }
     }
 
     private void setupAddonToggle(LinearLayout layout, String name) {
         if (layout == null) return;
+
+        // Atur style melengkung awal saat pertama kali dimuat
+        setCardStyle(layout, "#FFFFFF", "#222222", false);
+
         layout.setOnClickListener(v -> {
             if (selectedAddonsList.contains(name)) {
                 selectedAddonsList.remove(name);
-                layout.setBackgroundColor(Color.WHITE);
-                ((TextView) layout.getChildAt(1)).setTextColor(Color.parseColor("#1A1C29"));
-                if (layout.getChildAt(0) instanceof ImageView) {
-                    ((ImageView) layout.getChildAt(0)).setImageTintList(ColorStateList.valueOf(Color.parseColor("#1A1C29")));
-                }
+                setCardStyle(layout, "#FFFFFF", "#222222", false);
             } else {
                 selectedAddonsList.add(name);
-                layout.setBackgroundColor(Color.parseColor("#F4F3FF"));
-                ((TextView) layout.getChildAt(1)).setTextColor(Color.parseColor("#5A55CA"));
-                if (layout.getChildAt(0) instanceof ImageView) {
-                    ((ImageView) layout.getChildAt(0)).setImageTintList(ColorStateList.valueOf(Color.parseColor("#5A55CA")));
-                }
+                setCardStyle(layout, "#7A75F0", "#FFFFFF", true);
             }
         });
+    }
+
+    private void setCardStyle(LinearLayout layout, String bgColor, String tintColor, boolean isActive) {
+        GradientDrawable gd = new GradientDrawable();
+        gd.setShape(GradientDrawable.RECTANGLE);
+        gd.setCornerRadius(32f); // Mengunci kelengkungan sudut agar selalu round oval mewah
+        gd.setColor(Color.parseColor(bgColor));
+        layout.setBackground(gd);
+
+        // Ubah warna teks di dalam
+        if (layout.getChildCount() > 1 && layout.getChildAt(1) instanceof TextView) {
+            ((TextView) layout.getChildAt(1)).setTextColor(Color.parseColor(tintColor));
+        }
+        // Ubah warna tint ikon tanpa merusak gambar aslinya
+        if (layout.getChildCount() > 0 && layout.getChildAt(0) instanceof ImageView) {
+            ((ImageView) layout.getChildAt(0)).setImageTintList(ColorStateList.valueOf(Color.parseColor(tintColor)));
+        }
     }
 }

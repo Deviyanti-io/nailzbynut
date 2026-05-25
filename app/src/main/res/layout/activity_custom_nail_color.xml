@@ -12,19 +12,19 @@
         android:paddingHorizontal="16dp">
         <ImageView
             android:id="@+id/btn_back_color"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_back"
-            app:tint="#1A1C29"/>
+            app:tint="#222222"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Custom Nail"
-            android:textColor="#1A1C29"
+            android:textColor="#222222"
             android:textSize="18sp"
-            android:fontFamily="@font/poppins_bold"/>
+            android:fontFamily="@font/fredoka_bold"/>
     </RelativeLayout>
 
     <ScrollView
@@ -45,165 +45,162 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="24dp">
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
-                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#5A55CA" android:text="✓" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Shape" android:textColor="#5A55CA" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="4dp"/>
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#7A75F0" android:text="✓" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold" android:textSize="12sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Shape" android:textColor="#7A75F0" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="4dp"/>
                 </LinearLayout>
-                <View android:layout_width="40dp" android:layout_height="2dp" android:background="#5A55CA"/>
+                <View android:layout_width="35dp" android:layout_height="2dp" android:background="#7A75F0" android:layout_marginBottom="14dp"/>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
-                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#5A55CA" android:text="2" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Color" android:textColor="#5A55CA" android:textSize="11sp" android:fontFamily="@font/poppins_bold" android:layout_marginTop="4dp"/>
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#7A75F0" android:text="2" android:textColor="#FFFFFF" android:gravity="center" android:fontFamily="@font/poppins_bold" android:textSize="12sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Color" android:textColor="#7A75F0" android:textSize="11sp" android:fontFamily="@font/poppins_bold" android:layout_marginTop="4dp"/>
                 </LinearLayout>
-                <View android:layout_width="40dp" android:layout_height="2dp" android:background="#EFEFFF"/>
+                <View android:layout_width="35dp" android:layout_height="2dp" android:background="#E0E0E0" android:layout_marginBottom="14dp"/>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
-                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#EFEFFF" android:text="3" android:textColor="#8A8A93" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#E0E0E0" android:text="3" android:textColor="#8A8A93" android:gravity="center" android:fontFamily="@font/poppins_bold" android:textSize="12sp"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Details" android:textColor="#8A8A93" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="4dp"/>
                 </LinearLayout>
-                <View android:layout_width="40dp" android:layout_height="2dp" android:background="#EFEFFF"/>
+                <View android:layout_width="35dp" android:layout_height="2dp" android:background="#E0E0E0" android:layout_marginBottom="14dp"/>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_weight="1">
-                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#EFEFFF" android:text="4" android:textColor="#8A8A93" android:gravity="center" android:fontFamily="@font/poppins_bold"/>
+                    <TextView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#E0E0E0" android:text="4" android:textColor="#8A8A93" android:gravity="center" android:fontFamily="@font/poppins_bold" android:textSize="12sp"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Review" android:textColor="#8A8A93" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="4dp"/>
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Color" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
-
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Color Type" android:textColor="#222222" android:textSize="15sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
             <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:scrollbars="none" android:layout_marginBottom="16dp">
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <Button android:id="@+id/btn_type_solid" android:layout_width="wrap_content" android:layout_height="38dp" android:text="Solid" android:textColor="#FFFFFF" android:background="@drawable/bg_button_rounded" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:layout_marginRight="8dp" android:paddingHorizontal="16dp"/>
-                    <Button android:id="@+id/btn_type_gradient" android:layout_width="wrap_content" android:layout_height="38dp" android:text="Ombre" android:textColor="#1A1C29" android:background="@drawable/bg_button_outline" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:layout_marginRight="8dp" android:paddingHorizontal="16dp"/>
-                    <Button android:id="@+id/btn_type_french" android:layout_width="wrap_content" android:layout_height="38dp" android:text="French Tip" android:textColor="#1A1C29" android:background="@drawable/bg_button_outline" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:layout_marginRight="8dp" android:paddingHorizontal="16dp"/>
-                    <Button android:id="@+id/btn_type_cateye" android:layout_width="wrap_content" android:layout_height="38dp" android:text="Cat Eye" android:textColor="#1A1C29" android:background="@drawable/bg_button_outline" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:paddingHorizontal="16dp"/>
+                    <Button android:id="@+id/btn_type_solid" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Solid" android:textColor="#222222" android:backgroundTint="#FFFFFF" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:layout_marginRight="8dp" android:paddingHorizontal="16dp"/>
+                    <Button android:id="@+id/btn_type_gradient" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Ombre" android:textColor="#222222" android:backgroundTint="#FFFFFF" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:layout_marginRight="8dp" android:paddingHorizontal="16dp"/>
+                    <Button android:id="@+id/btn_type_french" android:layout_width="wrap_content" android:layout_height="40dp" android:text="French Tip" android:textColor="#222222" android:backgroundTint="#FFFFFF" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:layout_marginRight="8dp" android:paddingHorizontal="16dp"/>
+                    <Button android:id="@+id/btn_type_cateye" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Cat Eye" android:textColor="#222222" android:backgroundTint="#FFFFFF" android:textAllCaps="false" android:fontFamily="@font/poppins_medium" android:paddingHorizontal="16dp"/>
                 </LinearLayout>
             </HorizontalScrollView>
 
             <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:scrollbars="none" android:layout_marginBottom="24dp">
-                <LinearLayout android:id="@+id/layout_palette_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
-
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
                     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp">
-                        <View android:id="@+id/c_001" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_002" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_003" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_004" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_005" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_006" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_007" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_008" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_009" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_010" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
+                        <View android:id="@+id/c_001" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_002" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_003" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_004" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_005" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_006" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_007" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_008" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_009" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_010" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
                     </LinearLayout>
-
                     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp">
-                        <View android:id="@+id/c_011" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_012" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_013" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_014" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_015" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_016" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_017" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_018" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_019" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_020" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
+                        <View android:id="@+id/c_011" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_012" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_013" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_014" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_015" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_016" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_017" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_018" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_019" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_020" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
                     </LinearLayout>
-
                     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
-                        <View android:id="@+id/c_021" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_022" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_023" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_024" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_025" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_026" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_027" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_028" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-                        <View android:id="@+id/c_029" android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true"/>
-
-                        <RelativeLayout android:layout_width="35dp" android:layout_height="35dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#EFEFFF">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+" android:textColor="#5A55CA" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_centerInParent="true"/>
+                        <View android:id="@+id/c_021" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_022" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_023" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_024" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_025" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_026" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_027" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_028" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <View android:id="@+id/c_029" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:background="@drawable/bg_circle_color"/>
+                        <RelativeLayout android:layout_width="36dp" android:layout_height="36dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#E0E0E0">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+" android:textColor="#7A75F0" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_centerInParent="true"/>
                         </RelativeLayout>
                     </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Finish" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Finish" android:textColor="#222222" android:textSize="15sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4" android:layout_marginBottom="24dp">
-                <LinearLayout android:id="@+id/btn_finish_glossy" android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" android:background="@drawable/bg_card_menu" android:orientation="vertical" android:gravity="center" android:layout_marginRight="6dp" android:clickable="true" android:focusable="true">
+                <LinearLayout android:id="@+id/btn_finish_glossy" android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" android:orientation="vertical" android:gravity="center" android:layout_marginRight="6dp" android:clickable="true" android:focusable="true" android:elevation="1dp">
                     <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_finish_glossy"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Glossy" android:textColor="#1A1C29" android:textSize="12sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Glossy" android:textColor="#222222" android:textSize="12sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
                 </LinearLayout>
-                <LinearLayout android:id="@+id/btn_finish_matte" android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" android:background="@drawable/bg_card_menu" android:orientation="vertical" android:gravity="center" android:layout_marginHorizontal="3dp" android:clickable="true" android:focusable="true">
+                <LinearLayout android:id="@+id/btn_finish_matte" android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" android:orientation="vertical" android:gravity="center" android:layout_marginHorizontal="3dp" android:clickable="true" android:focusable="true" android:elevation="1dp">
                     <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_finish_matte"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Matte" android:textColor="#1A1C29" android:textSize="12sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Matte" android:textColor="#222222" android:textSize="12sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
                 </LinearLayout>
-                <LinearLayout android:id="@+id/btn_finish_chrome" android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" android:background="@drawable/bg_card_menu" android:orientation="vertical" android:gravity="center" android:layout_marginHorizontal="3dp" android:clickable="true" android:focusable="true">
+                <LinearLayout android:id="@+id/btn_finish_chrome" android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" android:orientation="vertical" android:gravity="center" android:layout_marginHorizontal="3dp" android:clickable="true" android:focusable="true" android:elevation="1dp">
                     <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_finish_chrome"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Chrome" android:textColor="#1A1C29" android:textSize="12sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Chrome" android:textColor="#222222" android:textSize="12sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
                 </LinearLayout>
-                <LinearLayout android:id="@+id/btn_finish_glitter" android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" android:background="@drawable/bg_card_menu" android:orientation="vertical" android:gravity="center" android:layout_marginLeft="6dp" android:clickable="true" android:focusable="true">
+                <LinearLayout android:id="@+id/btn_finish_glitter" android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" android:orientation="vertical" android:gravity="center" android:layout_marginLeft="6dp" android:clickable="true" android:focusable="true" android:elevation="1dp">
                     <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_finish_glitter"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Glitter" android:textColor="#1A1C29" android:textSize="12sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Glitter" android:textColor="#222222" android:textSize="12sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nail Art Add-ons" android:textColor="#1A1C29" android:textSize="16sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nail Art Add-ons" android:textColor="#222222" android:textSize="15sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="12dp"/>
             <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:scrollbars="none" android:layout_marginBottom="24dp">
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingBottom="4dp">
-                    <LinearLayout android:id="@+id/addon_charms" android:layout_width="85dp" android:layout_height="95dp" android:background="@drawable/bg_card_menu" android:orientation="vertical" android:gravity="center" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true">
+                    <LinearLayout android:id="@+id/addon_charms" android:layout_width="85dp" android:layout_height="95dp" android:orientation="vertical" android:gravity="center" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:elevation="1dp">
                         <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_addon_charms"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Charms" android:textColor="#1A1C29" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Charms" android:textColor="#222222" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
                     </LinearLayout>
-                    <LinearLayout android:id="@+id/addon_pearls" android:layout_width="85dp" android:layout_height="95dp" android:background="@drawable/bg_card_menu" android:orientation="vertical" android:gravity="center" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true">
+                    <LinearLayout android:id="@+id/addon_pearls" android:layout_width="85dp" android:layout_height="95dp" android:orientation="vertical" android:gravity="center" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:elevation="1dp">
                         <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_addon_pearls"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pearls" android:textColor="#1A1C29" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pearls" android:textColor="#222222" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
                     </LinearLayout>
-                    <LinearLayout android:id="@+id/addon_rhinestone" android:layout_width="85dp" android:layout_height="95dp" android:background="@drawable/bg_card_menu" android:orientation="vertical" android:gravity="center" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true">
+                    <LinearLayout android:id="@+id/addon_rhinestone" android:layout_width="85dp" android:layout_height="95dp" android:orientation="vertical" android:gravity="center" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:elevation="1dp">
                         <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_addon_rhinestone"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rhinestone" android:textColor="#1A1C29" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rhinestone" android:textColor="#222222" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
                     </LinearLayout>
-                    <LinearLayout android:id="@+id/addon_flower" android:layout_width="85dp" android:layout_height="95dp" android:background="@drawable/bg_card_menu" android:orientation="vertical" android:gravity="center" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true">
+                    <LinearLayout android:id="@+id/addon_flower" android:layout_width="85dp" android:layout_height="95dp" android:orientation="vertical" android:gravity="center" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:elevation="1dp">
                         <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_addon_flower"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3D Flower" android:textColor="#1A1C29" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3D Flower" android:textColor="#222222" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
                     </LinearLayout>
-                    <LinearLayout android:id="@+id/addon_stickers" android:layout_width="85dp" android:layout_height="95dp" android:background="@drawable/bg_card_menu" android:orientation="vertical" android:gravity="center" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true">
+                    <LinearLayout android:id="@+id/addon_stickers" android:layout_width="85dp" android:layout_height="95dp" android:orientation="vertical" android:gravity="center" android:layout_marginRight="10dp" android:clickable="true" android:focusable="true" android:elevation="1dp">
                         <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_addon_stickers"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Stickers" android:textColor="#1A1C29" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Stickers" android:textColor="#222222" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
                     </LinearLayout>
-                    <LinearLayout android:id="@+id/addon_bow" android:layout_width="85dp" android:layout_height="95dp" android:background="@drawable/bg_card_menu" android:orientation="vertical" android:gravity="center" android:clickable="true" android:focusable="true">
+                    <LinearLayout android:id="@+id/addon_bow" android:layout_width="85dp" android:layout_height="95dp" android:orientation="vertical" android:gravity="center" android:clickable="true" android:focusable="true" android:elevation="1dp">
                         <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_addon_bow"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bow" android:textColor="#1A1C29" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bow" android:textColor="#222222" android:textSize="11sp" android:fontFamily="@font/poppins_medium" android:layout_marginTop="6dp"/>
                     </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
 
             <LinearLayout android:id="@+id/btn_upload_photo_container"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/bg_card_menu"
+                android:layout_height="52dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:layout_marginBottom="30dp"
                 android:clickable="true"
-                android:focusable="true">
-                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_filter" app:tint="#5A55CA"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Upload foto referensi kamu di sini +" android:textColor="#5A55CA" android:textSize="13sp" android:layout_marginLeft="10dp" android:fontFamily="@font/poppins_medium"/>
+                android:focusable="true"
+                android:elevation="1dp">
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_filter" app:tint="#7A75F0"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Upload foto referensi kamu di sini +" android:textColor="#7A75F0" android:textSize="13sp" android:layout_marginLeft="10dp" android:fontFamily="@font/poppins_medium"/>
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_next_color"
         android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        android:text="Next"
+        android:text="Next Step"
         android:textColor="#FFFFFF"
+        android:backgroundTint="#7A75F0"
         android:textAllCaps="false"
         android:textSize="16sp"
         android:fontFamily="@font/poppins_bold"
-        android:background="@drawable/bg_button_rounded" />
+        app:cornerRadius="16dp"
+        android:elevation="2dp" />
 
 </RelativeLayout>

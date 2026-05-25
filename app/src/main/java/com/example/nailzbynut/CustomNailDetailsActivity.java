@@ -2,13 +2,16 @@ package com.example.nailzbynut;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
@@ -26,7 +29,7 @@ public class CustomNailDetailsActivity extends AppCompatActivity {
     private EditText etSpecialNotes;
 
     private int thumbVal = 14, indexVal = 10, middleVal = 11, ringVal = 10, pinkyVal = 8;
-    private String selectedPresetSize = "Custom/Medium";
+    private String selectedPresetSize = "M";
 
     private String dataShape, dataLength, dataColorType, dataColorHex, dataFinish;
     private ArrayList<String> dataAddons;
@@ -97,7 +100,18 @@ public class CustomNailDetailsActivity extends AppCompatActivity {
         if (btnMinusPinky != null) btnMinusPinky.setOnClickListener(v -> changeValue("pinky", -1));
         if (btnPlusPinky != null) btnPlusPinky.setOnClickListener(v -> changeValue("pinky", 1));
 
-        highlightPresetButton(btnSizeM);
+        // Amankan kelengkungan kontainer per jari biar bulat estetik
+        LinearLayout cardContainer = findViewById(R.id.et_special_notes) != null ? (LinearLayout) findViewById(R.id.tv_val_thumb).getParent().getParent() : null;
+        if (cardContainer != null) {
+            GradientDrawable containerShape = new GradientDrawable();
+            containerShape.setShape(GradientDrawable.RECTANGLE);
+            containerShape.setCornerRadius(32f);
+            containerShape.setColor(Color.WHITE);
+            cardContainer.setBackground(containerShape);
+        }
+
+        // Jalankan keadaan awal default ukuran M agar menyala bulat premium
+        applyPresetSize("M", 16, 12, 13, 12, 10);
 
         if (btnNext != null) {
             btnNext.setOnClickListener(v -> {
@@ -146,7 +160,7 @@ public class CustomNailDetailsActivity extends AppCompatActivity {
         resetPresetButtons();
         if (label.equals("S")) highlightPresetButton(btnSizeS);
         else if (label.equals("M")) highlightPresetButton(btnSizeM);
-        else highlightPresetButton(btnSizeL);
+        else if (label.equals("L")) highlightPresetButton(btnSizeL);
     }
 
     private void changeValue(String finger, int diff) {
@@ -163,15 +177,29 @@ public class CustomNailDetailsActivity extends AppCompatActivity {
     }
 
     private void resetPresetButtons() {
-        if (btnSizeS != null) { btnSizeS.setBackgroundResource(R.drawable.bg_button_outline); btnSizeS.setTextColor(Color.parseColor("#1A1C29")); }
-        if (btnSizeM != null) { btnSizeM.setBackgroundResource(R.drawable.bg_button_outline); btnSizeM.setTextColor(Color.parseColor("#1A1C29")); }
-        if (btnSizeL != null) { btnSizeL.setBackgroundResource(R.drawable.bg_button_outline); btnSizeL.setTextColor(Color.parseColor("#1A1C29")); }
+        setPureRoundedStyle(btnSizeS, "#FFFFFF", "#222222", false);
+        setPureRoundedStyle(btnSizeM, "#FFFFFF", "#222222", false);
+        setPureRoundedStyle(btnSizeL, "#FFFFFF", "#222222", false);
     }
 
     private void highlightPresetButton(Button btn) {
-        if (btn != null) {
-            btn.setBackgroundResource(R.drawable.bg_button_rounded);
-            btn.setTextColor(Color.WHITE);
+        setPureRoundedStyle(btn, "#7A75F0", "#FFFFFF", true);
+    }
+
+    private void setPureRoundedStyle(Button button, String backgroundColorHex, String textColorHex, boolean isActive) {
+        if (button == null) return;
+
+        GradientDrawable shape = new GradientDrawable();
+        shape.setShape(GradientDrawable.RECTANGLE);
+        shape.setCornerRadius(24f);
+        shape.setColor(Color.parseColor(backgroundColorHex));
+
+        if (!isActive) {
+            shape.setStroke(2, Color.parseColor("#E0E0E0"));
         }
+
+        button.setBackground(shape);
+        button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(backgroundColorHex)));
+        button.setTextColor(Color.parseColor(textColorHex));
     }
 }

@@ -1,63 +1,116 @@
-package com.example.nailzbynut; // Sesuaikan dengan nama package proyekmu
+package com.example.nailzbynut;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import java.util.ArrayList;
 
 public class CustomNailReviewActivity extends AppCompatActivity {
+
+    private ImageView btnBack;
+    private AppCompatButton btnToBooking;
+    private View viewColorPreview;
+
+    private TextView tvShape, tvLength, tvColor, tvFinish, tvAddons, tvSize, tvNotes;
+
+    private String shape, length, colorType, colorHex, finish, sizeReport, notes, uploadedImage;
+    private ArrayList<String> addonsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_nail_review);
 
-        ImageView btnBack = findViewById(R.id.btnBack);
-        TextView tvShape = findViewById(R.id.tvReviewShape);
-        TextView tvLength = findViewById(R.id.tvReviewLength);
-        TextView tvColor = findViewById(R.id.tvReviewColor);
-        TextView tvFinish = findViewById(R.id.tvReviewFinish);
-        TextView tvAddon = findViewById(R.id.tvReviewAddon);
-        TextView tvTotalPrice = findViewById(R.id.tvTotalPrice);
-        Button btnAddToCart = findViewById(R.id.btnAddToCart);
+        // 1. Tangkap seluruh estafet data kustomisasi kuku dari halaman Intent sebelumnya
+        Intent incoming = getIntent();
+        shape = incoming.getStringExtra("SHAPE_DATA") != null ? incoming.getStringExtra("SHAPE_DATA") : "Almond";
+        length = incoming.getStringExtra("LENGTH_DATA") != null ? incoming.getStringExtra("LENGTH_DATA") : "Medium";
+        colorType = incoming.getStringExtra("COLOR_TYPE_DATA") != null ? incoming.getStringExtra("COLOR_TYPE_DATA") : "Solid";
+        colorHex = incoming.getStringExtra("COLOR_HEX_DATA") != null ? incoming.getStringExtra("COLOR_HEX_DATA") : "#D6001C";
+        finish = incoming.getStringExtra("FINISH_DATA") != null ? incoming.getStringExtra("FINISH_DATA") : "Glossy";
+        addonsList = incoming.getStringArrayListExtra("ADDONS_DATA");
+        sizeReport = incoming.getStringExtra("SIZE_REPORT_DATA") != null ? incoming.getStringExtra("SIZE_REPORT_DATA") : "M";
+        notes = incoming.getStringExtra("SPECIAL_NOTES_DATA") != null ? incoming.getStringExtra("SPECIAL_NOTES_DATA") : "";
+        uploadedImage = incoming.getStringExtra("UPLOADED_IMAGE_DATA") != null ? incoming.getStringExtra("UPLOADED_IMAGE_DATA") : "";
 
-        // Aksi Kembali ke Step Sebelumnya
-        btnBack.setOnClickListener(v -> finish());
+        // 2. Inisialisasi Komponen Komplit
+        btnBack = findViewById(R.id.btn_back_review);
+        btnToBooking = findViewById(R.id.btn_to_booking);
+        viewColorPreview = findViewById(R.id.view_review_color_preview);
 
-        // 1. Ambil Paket Estafet Data Lengkap dari Step 1 sampai Step 3
-        if (getIntent().getExtras() != null) {
-            String shape = getIntent().getStringExtra("EXTRA_SHAPE");
-            String length = getIntent().getStringExtra("EXTRA_LENGTH");
-            String colorType = getIntent().getStringExtra("EXTRA_COLOR_TYPE");
-            String colorHex = getIntent().getStringExtra("EXTRA_COLOR_HEX");
-            String finishType = getIntent().getStringExtra("EXTRA_FINISH");
-            String addon = getIntent().getStringExtra("EXTRA_ADDON");
+        tvShape = findViewById(R.id.tv_review_shape);
+        tvLength = findViewById(R.id.tv_review_length);
+        tvColor = findViewById(R.id.tv_review_color);
+        tvFinish = findViewById(R.id.tv_review_finish);
+        tvAddons = findViewById(R.id.tv_review_addons);
+        tvSize = findViewById(R.id.tv_review_size);
+        tvNotes = findViewById(R.id.tv_review_notes);
 
-            // 2. Tampilkan Data di Komponen Teks Ringkasan
-            tvShape.setText("Shape: " + shape);
-            tvLength.setText("Length: " + length);
-            tvColor.setText("Color Type: " + colorType + " (" + colorHex + ")");
-            tvFinish.setText("Finish: " + finishType);
-            tvAddon.setText("Add-ons: " + addon);
+        if (btnBack != null) btnBack.setOnClickListener(v -> finish());
 
-            // Kalkulasi harga dinamis sederhana (jika ada add-on, harga bertambah)
-            if (addon != null && !addon.equals("None")) {
-                tvTotalPrice.setText("Rp 125.000"); // Base 95k + Add-on 30k sesuai gambar UI
-            } else {
-                tvTotalPrice.setText("Rp 95.000");
+        // 3. Pasang Isian Data ke Tampilan Review
+        if (tvShape != null) tvShape.setText(shape);
+        if (tvLength != null) tvLength.setText(length);
+        if (tvFinish != null) tvFinish.setText(finish);
+        if (tvSize != null) tvSize.setText(sizeReport);
+
+        if (tvNotes != null) {
+            tvNotes.setText(notes.isEmpty() ? "Tidak ada catatan tambahan." : notes);
+        }
+
+        if (tvColor != null) {
+            tvColor.setText(colorType + " (" + colorHex + ")");
+        }
+
+        // Tampilkan lingkaran warna yang sesuai pilihan konsumen sebelumnya
+        if (viewColorPreview != null) {
+            try {
+                viewColorPreview.setBackgroundColor(Color.parseColor(colorHex));
+            } catch (Exception e) {
+                viewColorPreview.setBackgroundColor(Color.parseColor("#7A75F0"));
             }
         }
 
-        // 3. Aksi Tombol Akhir: Masuk Keranjang Belanja
-        btnAddToCart.setOnClickListener(v -> {
-            Toast.makeText(CustomNailReviewActivity.this, "Pesanan kuku kustom berhasil ditambahkan ke Cart!", Toast.LENGTH_LONG).show();
+        // Gabungkan list aksesoris addon menjadi satu untaian teks manis
+        if (tvAddons != null) {
+            if (addonsList != null && !addonsList.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < addonsList.size(); i++) {
+                    sb.append(addonsList.get(i));
+                    if (i < addonsList.size() - 1) sb.append(", ");
+                }
+                tvAddons.setText(sb.toString());
+            } else {
+                tvAddons.setText("Tanpa aksesoris tambahan");
+            }
+        }
 
-            // Logika lanjutan: Kamu bisa mengarahkan user kembali ke halaman Home/Explore utama
-            // Intent intent = new Intent(CustomNailReviewActivity.this, ExploreActivity.class);
-            // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            // startActivity(intent);
-        });
+        // Amankan kelengkungan kartu utama secara mutlak agar seindah referensi Anda
+        LinearLayout reviewCard = findViewById(R.id.layout_review_card);
+        if (reviewCard != null) {
+            GradientDrawable cardShape = new GradientDrawable();
+            cardShape.setShape(GradientDrawable.RECTANGLE);
+            cardShape.setCornerRadius(32f); // Kunci kelengkungan sudut bulat premium
+            cardShape.setColor(Color.WHITE);
+            reviewCard.setBackground(cardShape);
+        }
+
+        // 4. Arahkan Navigasi Akhir langsung ke halaman Kalender Booking Pilihan Jam!
+        if (btnToBooking != null) {
+            btnToBooking.setOnClickListener(v -> {
+                Intent intent = new Intent(CustomNailReviewActivity.this, BookingAppointmentActivity.class);
+                // Teruskan lemparan estafet data ke booking jika diperlukan untuk simpan database
+                intent.putExtra("FINAL_SHAPE", shape);
+                intent.putExtra("FINAL_COLOR", colorHex);
+                startActivity(intent);
+            });
+        }
     }
 }

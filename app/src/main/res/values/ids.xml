@@ -83,4 +83,7 @@
     <item name="tv_user_greeting" type="id" />
     <item name="edt_password" type="id" />
     <item name="bottom_navigation" type="id" />
+    <item name="btn_date_1" type="id" />
+    <item name="btn_back_booking" type="id" />
+    <item name="btn_date_2" type="id" />
 </resources>
