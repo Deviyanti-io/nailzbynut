@@ -1,6 +1,5 @@
 package com.example.nailzbynut;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -8,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -17,15 +17,20 @@ public class CustomNailShapeActivity extends AppCompatActivity {
     private LinearLayout btnAlmond, btnCoffin, btnSquare, btnOval, btnStiletto, btnRound, btnSquoval, btnLipstick;
     private TextView tvAlmond, tvCoffin, tvSquare, tvOval, tvStiletto, tvRound, tvSquoval, tvLipstick;
     private AppCompatButton btnNext, btnShort, btnMedium, btnLong;
-
     private String selectedShape = "Almond";
     private String selectedLength = "Medium";
+
+    private final String ACTIVE_BG = "#7A75F0";
+    private final String ACTIVE_TEXT = "#FFFFFF";
+    private final String INACTIVE_BG = "#FFFFFF";
+    private final String INACTIVE_TEXT = "#222222";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_nail_shape);
 
+        // Inisialisasi view
         btnBack = findViewById(R.id.btn_back);
         btnAlmond = findViewById(R.id.btn_shape_almond);
         btnCoffin = findViewById(R.id.btn_shape_coffin);
@@ -50,24 +55,37 @@ public class CustomNailShapeActivity extends AppCompatActivity {
         btnLong = findViewById(R.id.btn_len_long);
         btnNext = findViewById(R.id.btn_next_step);
 
-        if (btnBack != null) btnBack.setOnClickListener(v -> finish());
+        btnBack.setOnClickListener(v -> finish());
 
-        changeSelectedState("Almond");
-        changeLengthState("Medium");
+        // Set listener untuk shape
+        setShapeClickListener(btnAlmond, tvAlmond, "Almond");
+        setShapeClickListener(btnCoffin, tvCoffin, "Coffin");
+        setShapeClickListener(btnSquare, tvSquare, "Square");
+        setShapeClickListener(btnOval, tvOval, "Oval");
+        setShapeClickListener(btnStiletto, tvStiletto, "Stiletto");
+        setShapeClickListener(btnRound, tvRound, "Round");
+        setShapeClickListener(btnSquoval, tvSquoval, "Squoval");
+        setShapeClickListener(btnLipstick, tvLipstick, "Lipstick");
 
-        btnAlmond.setOnClickListener(v -> changeSelectedState("Almond"));
-        btnCoffin.setOnClickListener(v -> changeSelectedState("Coffin"));
-        btnSquare.setOnClickListener(v -> changeSelectedState("Square"));
-        btnOval.setOnClickListener(v -> changeSelectedState("Oval"));
-        btnStiletto.setOnClickListener(v -> changeSelectedState("Stiletto"));
-        btnRound.setOnClickListener(v -> changeSelectedState("Round"));
-        btnSquoval.setOnClickListener(v -> changeSelectedState("Squoval"));
-        btnLipstick.setOnClickListener(v -> changeSelectedState("Lipstick"));
+        // Listener untuk length
+        btnShort.setOnClickListener(v -> {
+            selectedLength = "Short";
+            updateLengthUI();
+        });
+        btnMedium.setOnClickListener(v -> {
+            selectedLength = "Medium";
+            updateLengthUI();
+        });
+        btnLong.setOnClickListener(v -> {
+            selectedLength = "Long";
+            updateLengthUI();
+        });
 
-        btnShort.setOnClickListener(v -> changeLengthState("Short"));
-        btnMedium.setOnClickListener(v -> changeLengthState("Medium"));
-        btnLong.setOnClickListener(v -> changeLengthState("Long"));
+        // Set tampilan awal
+        updateShapeUI(selectedShape);
+        updateLengthUI();
 
+        // Tombol next
         btnNext.setOnClickListener(v -> {
             Intent intent = new Intent(CustomNailShapeActivity.this, CustomNailColorActivity.class);
             intent.putExtra("SHAPE_DATA", selectedShape);
@@ -76,57 +94,70 @@ public class CustomNailShapeActivity extends AppCompatActivity {
         });
     }
 
-    private void changeSelectedState(String shape) {
-        selectedShape = shape;
+    private void setShapeClickListener(LinearLayout layout, TextView textView, String shapeName) {
+        layout.setOnClickListener(v -> {
+            selectedShape = shapeName;
+            updateShapeUI(shapeName);
+            Toast.makeText(this, "Selected: " + shapeName, Toast.LENGTH_SHORT).show();
+        });
+    }
 
-        // Reset semua tombol ke putih melengkung mewah dengan bayangan tipis
-        setPureRoundedStyle(btnAlmond, tvAlmond, "#FFFFFF", "#222222");
-        setPureRoundedStyle(btnCoffin, tvCoffin, "#FFFFFF", "#222222");
-        setPureRoundedStyle(btnSquare, tvSquare, "#FFFFFF", "#222222");
-        setPureRoundedStyle(btnOval, tvOval, "#FFFFFF", "#222222");
-        setPureRoundedStyle(btnStiletto, tvStiletto, "#FFFFFF", "#222222");
-        setPureRoundedStyle(btnRound, tvRound, "#FFFFFF", "#222222");
-        setPureRoundedStyle(btnSquoval, tvSquoval, "#FFFFFF", "#222222");
-        setPureRoundedStyle(btnLipstick, tvLipstick, "#FFFFFF", "#222222");
+    private void updateShapeUI(String activeShape) {
+        // Reset semua ke tidak aktif
+        applyShapeStyle(btnAlmond, tvAlmond, INACTIVE_BG, INACTIVE_TEXT);
+        applyShapeStyle(btnCoffin, tvCoffin, INACTIVE_BG, INACTIVE_TEXT);
+        applyShapeStyle(btnSquare, tvSquare, INACTIVE_BG, INACTIVE_TEXT);
+        applyShapeStyle(btnOval, tvOval, INACTIVE_BG, INACTIVE_TEXT);
+        applyShapeStyle(btnStiletto, tvStiletto, INACTIVE_BG, INACTIVE_TEXT);
+        applyShapeStyle(btnRound, tvRound, INACTIVE_BG, INACTIVE_TEXT);
+        applyShapeStyle(btnSquoval, tvSquoval, INACTIVE_BG, INACTIVE_TEXT);
+        applyShapeStyle(btnLipstick, tvLipstick, INACTIVE_BG, INACTIVE_TEXT);
 
-        // Set tombol yang aktif ke warna ungu lavender sesuai referensi baru Anda
-        switch (shape) {
-            case "Almond": setPureRoundedStyle(btnAlmond, tvAlmond, "#7A75F0", "#FFFFFF"); break;
-            case "Coffin": setPureRoundedStyle(btnCoffin, tvCoffin, "#7A75F0", "#FFFFFF"); break;
-            case "Square": setPureRoundedStyle(btnSquare, tvSquare, "#7A75F0", "#FFFFFF"); break;
-            case "Oval": setPureRoundedStyle(btnOval, tvOval, "#7A75F0", "#FFFFFF"); break;
-            case "Stiletto": setPureRoundedStyle(btnStiletto, tvStiletto, "#7A75F0", "#FFFFFF"); break;
-            case "Round": setPureRoundedStyle(btnRound, tvRound, "#7A75F0", "#FFFFFF"); break;
-            case "Squoval": setPureRoundedStyle(btnSquoval, tvSquoval, "#7A75F0", "#FFFFFF"); break;
-            case "Lipstick": setPureRoundedStyle(btnLipstick, tvLipstick, "#7A75F0", "#FFFFFF"); break;
+        // Aktifkan yang dipilih
+        switch (activeShape) {
+            case "Almond": applyShapeStyle(btnAlmond, tvAlmond, ACTIVE_BG, ACTIVE_TEXT); break;
+            case "Coffin": applyShapeStyle(btnCoffin, tvCoffin, ACTIVE_BG, ACTIVE_TEXT); break;
+            case "Square": applyShapeStyle(btnSquare, tvSquare, ACTIVE_BG, ACTIVE_TEXT); break;
+            case "Oval": applyShapeStyle(btnOval, tvOval, ACTIVE_BG, ACTIVE_TEXT); break;
+            case "Stiletto": applyShapeStyle(btnStiletto, tvStiletto, ACTIVE_BG, ACTIVE_TEXT); break;
+            case "Round": applyShapeStyle(btnRound, tvRound, ACTIVE_BG, ACTIVE_TEXT); break;
+            case "Squoval": applyShapeStyle(btnSquoval, tvSquoval, ACTIVE_BG, ACTIVE_TEXT); break;
+            case "Lipstick": applyShapeStyle(btnLipstick, tvLipstick, ACTIVE_BG, ACTIVE_TEXT); break;
         }
     }
 
-    private void setPureRoundedStyle(LinearLayout layout, TextView textView, String bgColorHex, String textColorHex) {
-        GradientDrawable shape = new GradientDrawable();
-        shape.setShape(GradientDrawable.RECTANGLE);
-        shape.setCornerRadius(32f); // Kunci kelengkungan sudut bulat premium
-        shape.setColor(Color.parseColor(bgColorHex));
-        layout.setBackground(shape);
+    private void applyShapeStyle(LinearLayout layout, TextView textView, String bgColorHex, String textColorHex) {
+        if (layout == null || textView == null) return;
+        GradientDrawable gd = new GradientDrawable();
+        gd.setShape(GradientDrawable.RECTANGLE);
+        gd.setCornerRadius(32f);
+        gd.setColor(Color.parseColor(bgColorHex));
+        layout.setBackground(gd);
         textView.setTextColor(Color.parseColor(textColorHex));
+        textView.setTextSize(13);
     }
 
-    @SuppressLint("RestrictedApi")
-    private void changeLengthState(String length) {
-        selectedLength = length;
-        android.content.res.ColorStateList whiteBg = android.content.res.ColorStateList.valueOf(Color.parseColor("#FFFFFF"));
-        int darkText = Color.parseColor("#222222");
+    private void updateLengthUI() {
+        resetLengthButtonStyle(btnShort);
+        resetLengthButtonStyle(btnMedium);
+        resetLengthButtonStyle(btnLong);
 
-        btnShort.setSupportBackgroundTintList(whiteBg); btnShort.setTextColor(darkText);
-        btnMedium.setSupportBackgroundTintList(whiteBg); btnMedium.setTextColor(darkText);
-        btnLong.setSupportBackgroundTintList(whiteBg); btnLong.setTextColor(darkText);
-
-        android.content.res.ColorStateList purpleBg = android.content.res.ColorStateList.valueOf(Color.parseColor("#7A75F0"));
-
-        switch (length) {
-            case "Short": btnShort.setSupportBackgroundTintList(purpleBg); btnShort.setTextColor(Color.WHITE); break;
-            case "Medium": btnMedium.setSupportBackgroundTintList(purpleBg); btnMedium.setTextColor(Color.WHITE); break;
-            case "Long": btnLong.setSupportBackgroundTintList(purpleBg); btnLong.setTextColor(Color.WHITE); break;
+        if (selectedLength.equals("Short")) {
+            setActiveLengthButtonStyle(btnShort);
+        } else if (selectedLength.equals("Medium")) {
+            setActiveLengthButtonStyle(btnMedium);
+        } else if (selectedLength.equals("Long")) {
+            setActiveLengthButtonStyle(btnLong);
         }
+    }
+
+    private void resetLengthButtonStyle(AppCompatButton button) {
+        button.setBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor(INACTIVE_BG)));
+        button.setTextColor(Color.parseColor(INACTIVE_TEXT));
+    }
+
+    private void setActiveLengthButtonStyle(AppCompatButton button) {
+        button.setBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor(ACTIVE_BG)));
+        button.setTextColor(Color.parseColor(ACTIVE_TEXT));
     }
 }

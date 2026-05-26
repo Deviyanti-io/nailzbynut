@@ -4,13 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F9F9FF"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:paddingBottom="40dp">
+
+        <!-- PROFILE HEADER -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,13 +28,17 @@
                 android:layout_height="100dp"
                 app:cardCornerRadius="50dp"
                 app:cardElevation="0dp">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/nail1" /> </androidx.cardview.widget.CardView>
+                    android:src="@drawable/nail1" />
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
+                android:id="@+id/tvUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nutty Nailz"
@@ -40,12 +48,17 @@
                 android:fontFamily="@font/fredoka_bold" />
 
             <TextView
+                android:id="@+id/tvUserEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="nutty.nailz@gmail.com"
                 android:textColor="#777777"
+                android:textSize="14sp"
                 android:fontFamily="@font/poppins_regular" />
+
         </LinearLayout>
+
+        <!-- GOLD MEMBER CARD -->
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -75,8 +88,8 @@
                     android:text="1.250 pts"
                     android:textColor="#FFFFFF"
                     android:layout_alignParentEnd="true"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins_bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -87,8 +100,12 @@
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
                     android:fontFamily="@font/poppins_regular" />
+
             </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
+
+        <!-- MENU -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,58 +115,80 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="14dp"
                 android:text="My Profile"
                 android:gravity="center_vertical"
                 android:drawableEnd="@android:drawable/ic_media_next"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="#222222" />
+                android:textColor="#222222"
+                android:textSize="15sp" />
 
-            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#EEEEEE" />
 
             <TextView
                 android:id="@+id/menuBooking"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="14dp"
                 android:text="My Bookings"
                 android:gravity="center_vertical"
                 android:drawableEnd="@android:drawable/ic_media_next"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="#222222" />
+                android:textColor="#222222"
+                android:textSize="15sp" />
 
-            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#EEEEEE" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="14dp"
                 android:text="Vouchers &amp; Promo"
                 android:gravity="center_vertical"
                 android:drawableEnd="@android:drawable/ic_media_next"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="#222222" />
+                android:textColor="#222222"
+                android:textSize="15sp" />
 
-            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#EEEEEE" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="14dp"
                 android:text="Settings"
                 android:gravity="center_vertical"
                 android:drawableEnd="@android:drawable/ic_media_next"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="#222222" />
+                android:textColor="#222222"
+                android:textSize="15sp" />
 
         </LinearLayout>
+
+        <!-- SIGN OUT BUTTON -->
 
         <Button
             android:id="@+id/btnSignOut"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:text="Sign Out"
+            android:text="SIGN OUT"
+            android:textAllCaps="false"
             android:textColor="#FF5252"
+            android:textSize="14sp"
             android:backgroundTint="#FFEBEB"
             android:fontFamily="@font/poppins_bold" />
 
     </LinearLayout>
+
 </ScrollView>

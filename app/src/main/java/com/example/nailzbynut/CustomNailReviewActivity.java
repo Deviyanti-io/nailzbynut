@@ -101,15 +101,46 @@ public class CustomNailReviewActivity extends AppCompatActivity {
             cardShape.setColor(Color.WHITE);
             reviewCard.setBackground(cardShape);
         }
+        // Setelah menerima data, cek jika ada uploadedImage
+        if (uploadedImage != null && !uploadedImage.isEmpty()) {
+            // Tampilkan thumbnail gambar (misal di TextView atau ImageView)
+            // Karena keterbatasan, kita tambahkan TextView pemberitahuan
+            TextView tvImageNote = findViewById(R.id.tv_image_note);
+            if (tvImageNote == null) {
+                // Jika tidak ada TextView, kita buat dinamis
+                tvImageNote = new TextView(this);
+                LinearLayout parent = findViewById(R.id.layout_review_card);
+                if (parent != null) {
+                    tvImageNote.setLayoutParams(new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
+                    ));
+                    tvImageNote.setPadding(0, 16, 0, 0);
+                    tvImageNote.setText("📷 Foto referensi tersedia");
+                    tvImageNote.setTextColor(Color.parseColor("#7A75F0"));
+                    parent.addView(tvImageNote);
+                }
+            } else {
+                tvImageNote.setText("📷 Foto referensi tersedia");
+                tvImageNote.setVisibility(View.VISIBLE);
+            }
+        }
 
         // 4. Arahkan Navigasi Akhir langsung ke halaman Kalender Booking Pilihan Jam!
         if (btnToBooking != null) {
             btnToBooking.setOnClickListener(v -> {
-                Intent intent = new Intent(CustomNailReviewActivity.this, BookingAppointmentActivity.class);
-                // Teruskan lemparan estafet data ke booking jika diperlukan untuk simpan database
-                intent.putExtra("FINAL_SHAPE", shape);
-                intent.putExtra("FINAL_COLOR", colorHex);
-                startActivity(intent);
+                    Intent intent = new Intent(CustomNailReviewActivity.this, BookingAppointmentActivity.class);
+                    intent.putExtra("FINAL_SHAPE", shape);
+                    intent.putExtra("FINAL_LENGTH", length);
+                    intent.putExtra("FINAL_COLOR_TYPE", colorType);
+                    intent.putExtra("FINAL_COLOR", colorHex);
+                    intent.putExtra("FINAL_FINISH", finish);
+                    intent.putExtra("FINAL_SIZE", sizeReport);
+                    intent.putExtra("FINAL_NOTES", notes);
+                    intent.putExtra("FINAL_IMAGE", uploadedImage);
+                    intent.putStringArrayListExtra("FINAL_ADDONS", addonsList);
+                    startActivity(intent);
+
             });
         }
     }

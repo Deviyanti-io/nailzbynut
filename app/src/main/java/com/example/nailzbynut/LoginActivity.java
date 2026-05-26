@@ -25,41 +25,42 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
         tvGoToSignUp = findViewById(R.id.tv_go_to_signup);
 
-        if (btnLogin != null) {
-            btnLogin.setOnClickListener(v -> {
-                String inputName = etUsername != null ? etUsername.getText().toString().trim() : "";
-                String inputPass = etPassword != null ? etPassword.getText().toString().trim() : "";
+        btnLogin.setOnClickListener(v -> {
+            String inputName = etUsername.getText().toString().trim();
+            String inputPass = etPassword.getText().toString().trim();
 
-                if (inputName.isEmpty() || inputPass.isEmpty()) {
-                    Toast.makeText(this, "Username dan Password wajib diisi ya, Cutie!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+            if (inputName.isEmpty() || inputPass.isEmpty()) {
+                Toast.makeText(this, "Username dan Password wajib diisi ya, Cutie!", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                // Mengambil data pendaftaran dari SharedPreferences
-                SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-                String savedUsername = sharedPref.getString("SAVED_USER", "").trim();
-                String savedPassword = sharedPref.getString("SAVED_PASS", "").trim();
+            SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+            String savedUsername = sharedPref.getString("SAVED_USER", "").trim();
+            String savedPassword = sharedPref.getString("SAVED_PASS", "").trim();
+            String savedEmail = sharedPref.getString("SAVED_EMAIL", "").trim();
 
-                // Validasi kecocokan input dengan data yang tersimpan
-                if (inputName.equalsIgnoreCase(savedUsername) && inputPass.equals(savedPassword)) {
-                    Toast.makeText(this, "Login Berhasil! 💖", Toast.LENGTH_SHORT).show();
+            if (inputName.equalsIgnoreCase(savedUsername) && inputPass.equals(savedPassword)) {
+                Toast.makeText(this, "Login Berhasil! 💖", Toast.LENGTH_SHORT).show();
 
-                    // Berpindah ke MainNavigationActivity setelah manifes diperbarui
-                    Intent intent = new Intent(LoginActivity.this, MainNavigationActivity.class);
-                    intent.putExtra("USER_NAME", inputName);
-                    startActivity(intent);
-                    finish(); // Menutup LoginActivity agar tidak bisa kembali dengan tombol back
-                } else {
-                    Toast.makeText(this, "Username atau Password salah / belum terdaftar!", Toast.LENGTH_LONG).show();
-                }
-            });
-        }
+                // Simpan session untuk ProfileFragment
+                SharedPreferences sessionPref = getSharedPreferences("UserSession", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sessionPref.edit();
+                editor.putString("username", inputName);
+                editor.putString("email", savedEmail);
+                editor.apply();
 
-        if (tvGoToSignUp != null) {
-            tvGoToSignUp.setOnClickListener(v -> {
-                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainNavigationActivity.class);
+                intent.putExtra("USER_NAME", inputName);
                 startActivity(intent);
-            });
-        }
+                finish();
+            } else {
+                Toast.makeText(this, "Username atau Password salah / belum terdaftar!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        tvGoToSignUp.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+            startActivity(intent);
+        });
     }
 }

@@ -21,58 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".MainNavigationActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".HistoryActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ExploreActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ServicesActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".CustomNailShapeActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".CustomNailColorActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".CustomNailDetailsActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".CustomNailReviewActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".BookingAppointmentActivity"
-            android:exported="false" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".MainNavigationActivity" />
+        <activity android:name=".CustomNailShapeActivity" />
+        <activity android:name=".CustomNailColorActivity" />
+        <activity android:name=".CustomNailDetailsActivity" />
+        <activity android:name=".CustomNailReviewActivity" />
+        <activity android:name=".BookingAppointmentActivity" />
+        <activity android:name=".ExploreActivity" />
+        <activity android:name=".HistoryActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ServicesActivity" />
 
     </application>
 

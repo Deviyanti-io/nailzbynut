@@ -97,4 +97,8 @@
     <item name="btn_confirm_to_booking" type="id" />
     <item name="btn_submit_booking" type="id" />
     <item name="btn_view_history" type="id" />
+    <item name="tv_image_note" type="id" />
+    <item name="tv_size_thumb" type="id" />
+    <item name="tv_size_middle" type="id" />
+    <item name="tv_size_index" type="id" />
 </resources>

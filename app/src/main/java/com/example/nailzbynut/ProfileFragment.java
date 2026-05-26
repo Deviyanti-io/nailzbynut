@@ -1,38 +1,36 @@
 package com.example.nailzbynut;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class ProfileFragment extends Fragment {
 
+    TextView tvUserName, tvUserEmail;
+
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        TextView menuBooking = view.findViewById(R.id.menuBooking);
-        Button btnSignOut = view.findViewById(R.id.btnSignOut);
+        tvUserName = view.findViewById(R.id.tvUserName);
+        tvUserEmail = view.findViewById(R.id.tvUserEmail);
 
-        // Aksi menu My Bookings (Bisa diarahkan ke Riwayat/Activity Booking)
-        menuBooking.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), BookingAppointmentActivity.class);
-            startActivity(intent);
-        });
+        // Perbaikan: gunakan UserPrefs yang sama dengan LoginActivity & SignUpActivity
+        SharedPreferences sharedPref = requireActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
+        String username = sharedPref.getString("SAVED_USER", "Guest");
+        String email = sharedPref.getString("SAVED_EMAIL", "guest@gmail.com");
 
-        // Aksi Sign Out
-        btnSignOut.setOnClickListener(v -> {
-            Toast.makeText(getActivity(), "Berhasil keluar dari akun Nut!", Toast.LENGTH_SHORT).show();
-            // Logika pindah ke LoginActivity jika ada
-        });
+        tvUserName.setText(username);
+        tvUserEmail.setText(email);
 
         return view;
     }
