@@ -35,17 +35,20 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
+                // Mengambil data pendaftaran dari SharedPreferences
                 SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-                String savedUsername = sharedPref.getString("SAVED_USER", "");
-                String savedPassword = sharedPref.getString("SAVED_PASS", "");
+                String savedUsername = sharedPref.getString("SAVED_USER", "").trim();
+                String savedPassword = sharedPref.getString("SAVED_PASS", "").trim();
 
+                // Validasi kecocokan input dengan data yang tersimpan
                 if (inputName.equalsIgnoreCase(savedUsername) && inputPass.equals(savedPassword)) {
                     Toast.makeText(this, "Login Berhasil! 💖", Toast.LENGTH_SHORT).show();
 
+                    // Berpindah ke MainNavigationActivity setelah manifes diperbarui
                     Intent intent = new Intent(LoginActivity.this, MainNavigationActivity.class);
                     intent.putExtra("USER_NAME", inputName);
                     startActivity(intent);
-                    finish();
+                    finish(); // Menutup LoginActivity agar tidak bisa kembali dengan tombol back
                 } else {
                     Toast.makeText(this, "Username atau Password salah / belum terdaftar!", Toast.LENGTH_LONG).show();
                 }

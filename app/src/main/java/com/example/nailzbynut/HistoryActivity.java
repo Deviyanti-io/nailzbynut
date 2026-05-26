@@ -42,7 +42,7 @@ public class HistoryActivity extends AppCompatActivity {
         // Klik tombol back kembali ke Home
         if (btnBackHistory != null) {
             btnBackHistory.setOnClickListener(v -> {
-                startActivity(new Intent(HistoryActivity.this, HomeActivity.class));
+                startActivity(new Intent(HistoryActivity.this, MainNavigationActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
             });
@@ -51,7 +51,7 @@ public class HistoryActivity extends AppCompatActivity {
         // Navigasi Bottom Bar
         if (navHome != null) {
             navHome.setOnClickListener(v -> {
-                startActivity(new Intent(HistoryActivity.this, HomeActivity.class));
+                startActivity(new Intent(HistoryActivity.this, MainNavigationActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
             });

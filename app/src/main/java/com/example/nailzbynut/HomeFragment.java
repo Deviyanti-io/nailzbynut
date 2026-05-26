@@ -22,7 +22,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate layout dashboard utama kamu
-        View view = inflater.inflate(R.layout.activity_home, container, false);
+        View view = inflater.inflate(R.layout.activity_main_navigation, container, false);
 
         // Sinkronisasi ID XML
         tvUserGreeting = view.findViewById(R.id.tv_user_greeting);

@@ -52,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
         // Alur Navigasi Klik Bottom Bar Menu Melayang
         if (navHome != null) {
             navHome.setOnClickListener(v -> {
-                startActivity(new Intent(ProfileActivity.this, HomeActivity.class));
+                startActivity(new Intent(ProfileActivity.this, MainNavigationActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
             });
