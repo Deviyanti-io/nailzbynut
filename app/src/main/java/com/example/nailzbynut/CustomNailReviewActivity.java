@@ -1,5 +1,6 @@
 package com.example.nailzbynut;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -23,12 +24,12 @@ public class CustomNailReviewActivity extends AppCompatActivity {
     private String shape, length, colorType, colorHex, finish, sizeReport, notes, uploadedImage;
     private ArrayList<String> addonsList;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_nail_review);
 
-        // 1. Tangkap seluruh estafet data kustomisasi kuku dari halaman Intent sebelumnya
         Intent incoming = getIntent();
         shape = incoming.getStringExtra("SHAPE_DATA") != null ? incoming.getStringExtra("SHAPE_DATA") : "Almond";
         length = incoming.getStringExtra("LENGTH_DATA") != null ? incoming.getStringExtra("LENGTH_DATA") : "Medium";
@@ -40,7 +41,6 @@ public class CustomNailReviewActivity extends AppCompatActivity {
         notes = incoming.getStringExtra("SPECIAL_NOTES_DATA") != null ? incoming.getStringExtra("SPECIAL_NOTES_DATA") : "";
         uploadedImage = incoming.getStringExtra("UPLOADED_IMAGE_DATA") != null ? incoming.getStringExtra("UPLOADED_IMAGE_DATA") : "";
 
-        // 2. Inisialisasi Komponen Komplit
         btnBack = findViewById(R.id.btn_back_review);
         btnToBooking = findViewById(R.id.btn_to_booking);
         viewColorPreview = findViewById(R.id.view_review_color_preview);
@@ -55,7 +55,6 @@ public class CustomNailReviewActivity extends AppCompatActivity {
 
         if (btnBack != null) btnBack.setOnClickListener(v -> finish());
 
-        // 3. Pasang Isian Data ke Tampilan Review
         if (tvShape != null) tvShape.setText(shape);
         if (tvLength != null) tvLength.setText(length);
         if (tvFinish != null) tvFinish.setText(finish);
@@ -69,7 +68,6 @@ public class CustomNailReviewActivity extends AppCompatActivity {
             tvColor.setText(colorType + " (" + colorHex + ")");
         }
 
-        // Tampilkan lingkaran warna yang sesuai pilihan konsumen sebelumnya
         if (viewColorPreview != null) {
             try {
                 viewColorPreview.setBackgroundColor(Color.parseColor(colorHex));
@@ -78,7 +76,6 @@ public class CustomNailReviewActivity extends AppCompatActivity {
             }
         }
 
-        // Gabungkan list aksesoris addon menjadi satu untaian teks manis
         if (tvAddons != null) {
             if (addonsList != null && !addonsList.isEmpty()) {
                 StringBuilder sb = new StringBuilder();
@@ -92,22 +89,18 @@ public class CustomNailReviewActivity extends AppCompatActivity {
             }
         }
 
-        // Amankan kelengkungan kartu utama secara mutlak agar seindah referensi Anda
         LinearLayout reviewCard = findViewById(R.id.layout_review_card);
         if (reviewCard != null) {
             GradientDrawable cardShape = new GradientDrawable();
             cardShape.setShape(GradientDrawable.RECTANGLE);
-            cardShape.setCornerRadius(32f); // Kunci kelengkungan sudut bulat premium
+            cardShape.setCornerRadius(32f);
             cardShape.setColor(Color.WHITE);
             reviewCard.setBackground(cardShape);
         }
-        // Setelah menerima data, cek jika ada uploadedImage
-        if (uploadedImage != null && !uploadedImage.isEmpty()) {
-            // Tampilkan thumbnail gambar (misal di TextView atau ImageView)
-            // Karena keterbatasan, kita tambahkan TextView pemberitahuan
+
+        if (!uploadedImage.isEmpty()) {
             TextView tvImageNote = findViewById(R.id.tv_image_note);
             if (tvImageNote == null) {
-                // Jika tidak ada TextView, kita buat dinamis
                 tvImageNote = new TextView(this);
                 LinearLayout parent = findViewById(R.id.layout_review_card);
                 if (parent != null) {
@@ -126,21 +119,20 @@ public class CustomNailReviewActivity extends AppCompatActivity {
             }
         }
 
-        // 4. Arahkan Navigasi Akhir langsung ke halaman Kalender Booking Pilihan Jam!
+        // PERBAIKAN UTAMA: Mengalirkan data asli (BUKAN hardcoded hijau lagi)
         if (btnToBooking != null) {
             btnToBooking.setOnClickListener(v -> {
-                    Intent intent = new Intent(CustomNailReviewActivity.this, BookingAppointmentActivity.class);
-                    intent.putExtra("FINAL_SHAPE", shape);
-                    intent.putExtra("FINAL_LENGTH", length);
-                    intent.putExtra("FINAL_COLOR_TYPE", colorType);
-                    intent.putExtra("FINAL_COLOR", colorHex);
-                    intent.putExtra("FINAL_FINISH", finish);
-                    intent.putExtra("FINAL_SIZE", sizeReport);
-                    intent.putExtra("FINAL_NOTES", notes);
-                    intent.putExtra("FINAL_IMAGE", uploadedImage);
-                    intent.putStringArrayListExtra("FINAL_ADDONS", addonsList);
-                    startActivity(intent);
-
+                Intent intent = new Intent(CustomNailReviewActivity.this, BookingAppointmentActivity.class);
+                intent.putExtra("FINAL_SHAPE", shape);
+                intent.putExtra("FINAL_LENGTH", length);
+                intent.putExtra("FINAL_COLOR_TYPE", colorType);
+                intent.putExtra("FINAL_COLOR", colorHex); // Menyertakan warna pilihan user asli
+                intent.putExtra("FINAL_FINISH", finish);
+                intent.putExtra("FINAL_SIZE", sizeReport);
+                intent.putExtra("FINAL_NOTES", notes);
+                intent.putExtra("FINAL_IMAGE", uploadedImage);
+                intent.putStringArrayListExtra("FINAL_ADDONS", addonsList);
+                startActivity(intent);
             });
         }
     }

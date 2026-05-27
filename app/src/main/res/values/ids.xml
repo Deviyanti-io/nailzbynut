@@ -101,4 +101,5 @@
     <item name="tv_size_thumb" type="id" />
     <item name="tv_size_middle" type="id" />
     <item name="tv_size_index" type="id" />
+    <item name="tv_review_color" type="id" />
 </resources>

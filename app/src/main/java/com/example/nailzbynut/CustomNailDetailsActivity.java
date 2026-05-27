@@ -40,7 +40,6 @@ public class CustomNailDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_nail_details);
 
-        // 1. Tangkap data dari CustomNailColorActivity
         Intent incoming = getIntent();
         dataShape = incoming.getStringExtra("SHAPE_DATA") != null ? incoming.getStringExtra("SHAPE_DATA") : "Almond";
         dataLength = incoming.getStringExtra("LENGTH_DATA") != null ? incoming.getStringExtra("LENGTH_DATA") : "Medium";
@@ -53,7 +52,6 @@ public class CustomNailDetailsActivity extends AppCompatActivity {
             dataAddonsList = incoming.getStringArrayListExtra("ADDONS_DATA");
         }
 
-        // 2. Inisialisasi Komponen Sesuai ID XML Anda (Bebas Merah)
         btnSizeS = findViewById(R.id.btn_size_s);
         btnSizeM = findViewById(R.id.btn_size_m);
         btnSizeL = findViewById(R.id.btn_size_l);
@@ -100,7 +98,6 @@ public class CustomNailDetailsActivity extends AppCompatActivity {
 
         applyPresetSize("M", 16, 12, 13, 12, 10);
 
-        // Kirim data ke ReviewActivity
         btnNext.setOnClickListener(v -> {
             String finalSizeReport = "Preset: " + selectedPresetSize + " (" + thumbVal + "-" + indexVal + "-" + middleVal + "-" + ringVal + "-" + pinkyVal + "mm)";
             String notesText = etSpecialNotes != null ? etSpecialNotes.getText().toString() : "";
@@ -109,7 +106,7 @@ public class CustomNailDetailsActivity extends AppCompatActivity {
             outIntent.putExtra("SHAPE_DATA", dataShape);
             outIntent.putExtra("LENGTH_DATA", dataLength);
             outIntent.putExtra("COLOR_TYPE_DATA", dataColorType);
-            outIntent.putExtra("COLOR_HEX_DATA", dataColorHex); // Tetap gunakan ini, kita sinkronkan Review-nya di bawah
+            outIntent.putExtra("COLOR_HEX_DATA", dataColorHex); // Disinkronkan menggunakan COLOR_HEX_DATA
             outIntent.putExtra("FINISH_DATA", dataFinish);
             outIntent.putExtra("SIZE_REPORT_DATA", finalSizeReport);
             outIntent.putExtra("SPECIAL_NOTES_DATA", notesText);

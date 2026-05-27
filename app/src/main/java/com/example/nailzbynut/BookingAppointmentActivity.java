@@ -31,7 +31,6 @@ public class BookingAppointmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_appointment);
 
-        // 1. Ambil estafet data secara lengkap dari CustomNailReviewActivity
         Intent intent = getIntent();
         shape = intent.getStringExtra("FINAL_SHAPE");
         if (shape == null) shape = "Almond";
@@ -52,10 +51,6 @@ public class BookingAppointmentActivity extends AppCompatActivity {
         addonsList = intent.getStringArrayListExtra("FINAL_ADDONS");
         if (addonsList == null) addonsList = new ArrayList<>();
 
-        // Tampilkan toast konfirmasi warna yang berhasil lolos estafet
-        Toast.makeText(this, "Warna diproses: " + colorHex, Toast.LENGTH_LONG).show();
-
-        // Inisialisasi Komponen View
         btnBack = findViewById(R.id.btnBack);
         btnNextBooking = findViewById(R.id.btnNextBooking);
         calendarView = findViewById(R.id.calendarView);
@@ -68,30 +63,24 @@ public class BookingAppointmentActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(v -> finish());
 
-        // Listener Kalender
         calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
             selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-            Toast.makeText(this, "Tanggal: " + selectedDate, Toast.LENGTH_SHORT).show();
         });
 
         resetAllTimeButtons();
         setTimeButtonListeners();
 
-        // Proses Penyimpanan Booking
         btnNextBooking.setOnClickListener(v -> {
             if (selectedTime.isEmpty() || selectedDate.isEmpty()) {
                 Toast.makeText(this, "Pilih tanggal dan waktu!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // Format tanggal
             String[] dateParts = selectedDate.split("/");
             String day = dateParts[0];
             int monthNum = Integer.parseInt(dateParts[1]);
             String monthName = getMonthName(monthNum);
-            String year = dateParts[2];
 
-            // Format waktu durasi pengerjaan (contoh: 09.00 -> 09.00 - 10.30)
             String[] timeParts = selectedTime.split("\\.");
             int startHour = Integer.parseInt(timeParts[0]);
             int startMin = Integer.parseInt(timeParts[1]);
@@ -103,7 +92,7 @@ public class BookingAppointmentActivity extends AppCompatActivity {
             }
             String timeRange = String.format("%02d.%02d - %02d.%02d", startHour, startMin, endHour, endMin);
 
-            // PERBAIKAN UTAMA: Merangkai daftar Add-ons ke dalam String
+            // Menyatukan list aksesoris addon ke dalam kalimat teks
             StringBuilder addonsBuilder = new StringBuilder();
             if (addonsList != null && !addonsList.isEmpty()) {
                 for (int i = 0; i < addonsList.size(); i++) {
@@ -114,26 +103,22 @@ public class BookingAppointmentActivity extends AppCompatActivity {
                 addonsBuilder.append("Tanpa Aksesoris");
             }
 
-            // Gabungkan Spesifikasi ke Subtitle agar tertera lengkap di History Card
+            // Gabungkan data pilihan asli ke string deskripsi subtitle
             String subtitle = shape + " • " + length + " • " + colorType + " (" + addonsBuilder.toString() + ")";
-
-            // Buat ID unik untuk baris transaksi booking baru
             String bookingId = UUID.randomUUID().toString();
 
-            // Simpan data transaksi ke SharedPreferences
             SharedPreferences prefs = getSharedPreferences("SimpleBookingData", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
 
             editor.putString(bookingId + "_date", day);
             editor.putString(bookingId + "_month", monthName);
             editor.putString(bookingId + "_title", "Custom Nail");
-            editor.putString(bookingId + "_subtitle", subtitle); // Menyimpan info komplit bentuk + warna + aksesoris
+            editor.putString(bookingId + "_subtitle", subtitle);
             editor.putString(bookingId + "_time", timeRange);
             editor.putString(bookingId + "_artist", "Nut (Top Artist)");
             editor.putString(bookingId + "_status", "Confirmed");
-            editor.putString(bookingId + "_colorHex", colorHex); // Menyimpan kode warna lingkaran pratinjau
+            editor.putString(bookingId + "_colorHex", colorHex);
 
-            // Perbarui susunan baris daftar ID booking induk
             String existingIds = prefs.getString("booking_ids", "");
             String newIds = existingIds + (existingIds.isEmpty() ? "" : ",") + bookingId;
             editor.putString("booking_ids", newIds);
@@ -141,12 +126,9 @@ public class BookingAppointmentActivity extends AppCompatActivity {
             boolean success = editor.commit();
 
             if (success) {
-                Toast.makeText(this, "Booking berhasil disimpan!", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(this, "Gagal menyimpan booking!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Booking sukses!", Toast.LENGTH_SHORT).show();
             }
 
-            // Bersihkan tumpukan halaman dan kembali ke Menu Utama Navigation
             Intent homeIntent = new Intent(BookingAppointmentActivity.this, MainNavigationActivity.class);
             homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(homeIntent);

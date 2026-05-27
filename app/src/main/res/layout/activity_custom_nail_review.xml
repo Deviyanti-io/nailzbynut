@@ -81,29 +81,127 @@
                 android:layout_marginBottom="24dp"
                 android:elevation="1dp">
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nail Shape" android:textColor="#8A8A93" android:textSize="12sp" android:fontFamily="@font/poppins_medium"/>
-                <TextView android:id="@+id/tv_review_shape" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Almond" android:textColor="#222222" android:textSize="15sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="14dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nail Shape"
+                    android:textColor="#8A8A93"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_medium"/>
+                <TextView
+                    android:id="@+id/tv_review_shape"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Almond"
+                    android:textColor="#222222"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginBottom="14dp"/>
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nail Length" android:textColor="#8A8A93" android:textSize="12sp" android:fontFamily="@font/poppins_medium"/>
-                <TextView android:id="@+id/tv_review_length" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Medium" android:textColor="#222222" android:textSize="15sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="14dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nail Length"
+                    android:textColor="#8A8A93"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_medium"/>
+                <TextView
+                    android:id="@+id/tv_review_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medium"
+                    android:textColor="#222222"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginBottom="14dp"/>
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Color Type &amp; Hex" android:textColor="#8A8A93" android:textSize="12sp" android:fontFamily="@font/poppins_medium"/>
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="14dp">
-                    <View android:id="@+id/view_review_color_preview" android:layout_width="18dp" android:layout_height="18dp" android:background="@drawable/bg_circle_color" android:backgroundTint="#D6001C" android:layout_marginRight="8dp"/>
-                    <TextView android:id="@+id/tv_review_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Solid (#D6001C)" android:textColor="#222222" android:textSize="15sp" android:fontFamily="@font/poppins_bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Color Type &amp; Hex"
+                    android:textColor="#8A8A93"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_medium"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="14dp">
+                    <View
+                        android:id="@+id/view_review_color_preview"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/bg_circle_color"
+                        android:layout_marginRight="8dp"/>
                 </LinearLayout>
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Finishing Coat" android:textColor="#8A8A93" android:textSize="12sp" android:fontFamily="@font/poppins_medium"/>
-                <TextView android:id="@+id/tv_review_finish" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Glossy" android:textColor="#222222" android:textSize="15sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="14dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Finishing Coat"
+                    android:textColor="#8A8A93"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_medium"/>
+                <TextView
+                    android:id="@+id/tv_review_finish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Glossy"
+                    android:textColor="#222222"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginBottom="14dp"/>
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Selected Add-ons" android:textColor="#8A8A93" android:textSize="12sp" android:fontFamily="@font/poppins_medium"/>
-                <TextView android:id="@+id/tv_review_addons" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Charms, Pearls" android:textColor="#222222" android:textSize="15sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="14dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selected Add-ons"
+                    android:textColor="#8A8A93"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_medium"/>
+                <TextView
+                    android:id="@+id/tv_review_addons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Charms, Pearls"
+                    android:textColor="#222222"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginBottom="14dp"/>
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nail Size Specification" android:textColor="#8A8A93" android:textSize="12sp" android:fontFamily="@font/poppins_medium"/>
-                <TextView android:id="@+id/tv_review_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Preset M (16-12-13-12-10mm)" android:textColor="#222222" android:textSize="15sp" android:fontFamily="@font/poppins_bold" android:layout_marginBottom="14dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nail Size Specification"
+                    android:textColor="#8A8A93"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_medium"/>
+                <TextView
+                    android:id="@+id/tv_review_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Preset M (16-12-13-12-10mm)"
+                    android:textColor="#222222"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginBottom="14dp"/>
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Special Custom Request Notes" android:textColor="#8A8A93" android:textSize="12sp" android:fontFamily="@font/poppins_medium"/>
-                <TextView android:id="@+id/tv_review_notes" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Tidak ada catatan tambahan." android:textColor="#222222" android:textSize="14sp" android:fontFamily="@font/poppins_medium"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Special Custom Request Notes"
+                    android:textColor="#8A8A93"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_medium"/>
+                <TextView
+                    android:id="@+id/tv_review_notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tidak ada catatan tambahan."
+                    android:textColor="#222222"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/poppins_medium"/>
 
             </LinearLayout>
 
