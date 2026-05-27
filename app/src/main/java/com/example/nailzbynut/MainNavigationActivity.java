@@ -1,5 +1,6 @@
 package com.example.nailzbynut;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -27,6 +28,7 @@ public class MainNavigationActivity extends AppCompatActivity {
     private String currentUsername = "Putri Deviyanti";
     private LinearLayout profileContentContainer; // container untuk konten profile tambahan
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

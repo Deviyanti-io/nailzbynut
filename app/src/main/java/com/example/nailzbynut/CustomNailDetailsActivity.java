@@ -1,5 +1,6 @@
 package com.example.nailzbynut;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -35,6 +36,7 @@ public class CustomNailDetailsActivity extends AppCompatActivity {
     private ArrayList<String> dataAddonsList = new ArrayList<>();
     private String dataUploadedImage = "";
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F9FF">
+    android:background="@color/background_primary">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,7 +30,8 @@
                     android:layout_height="24dp"
                     android:src="@drawable/ic_back"
                     android:clickable="true"
-                    android:focusable="true"/>
+                    android:focusable="true"
+                    app:tint="@color/text_primary"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -38,7 +39,7 @@
                     android:layout_weight="1"
                     android:text="My Bookings"
                     android:textAlignment="center"
-                    android:textColor="#222222"
+                    android:textColor="@color/text_primary"
                     android:textSize="18sp"
                     android:fontFamily="@font/poppins_bold" />
 
@@ -54,7 +55,7 @@
                 android:layout_marginHorizontal="20dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="#F5F2FF">
+                app:cardBackgroundColor="@color/background_card">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -67,12 +68,12 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@drawable/bg_card_menu"
-                        android:backgroundTint="#EFEFFF"
+                        android:background="@drawable/bg_card_rounded"
+                        android:backgroundTint="@color/lavender_light"
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center"
                         android:text="Upcoming"
-                        android:textColor="#7A75F0"
+                        android:textColor="@color/lavender_dark"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -84,7 +85,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center"
                         android:text="Completed"
-                        android:textColor="#B0B0B0"
+                        android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -99,16 +100,16 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation dengan 4 item (sama seperti di MainNavigationActivity) -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:background="#FFFFFF"
-        app:itemIconTint="#5A55CA"
-        app:itemTextColor="#5A55CA"
+        android:background="@color/background_card"
+        app:itemIconTint="@color/lavender_dark"
+        app:itemTextColor="@color/lavender_dark"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        android:elevation="8dp" />
 
 </RelativeLayout>

@@ -11,8 +11,9 @@ import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class BookingAppointmentActivity extends AppCompatActivity {
 
@@ -51,6 +52,9 @@ public class BookingAppointmentActivity extends AppCompatActivity {
         addonsList = intent.getStringArrayListExtra("FINAL_ADDONS");
         if (addonsList == null) addonsList = new ArrayList<>();
 
+        // Debug
+        Toast.makeText(this, "Warna dari review: " + colorHex, Toast.LENGTH_LONG).show();
+
         btnBack = findViewById(R.id.btnBack);
         btnNextBooking = findViewById(R.id.btnNextBooking);
         calendarView = findViewById(R.id.calendarView);
@@ -65,6 +69,7 @@ public class BookingAppointmentActivity extends AppCompatActivity {
 
         calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
             selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+            Toast.makeText(this, "Tanggal: " + selectedDate, Toast.LENGTH_SHORT).show();
         });
 
         resetAllTimeButtons();
@@ -92,41 +97,27 @@ public class BookingAppointmentActivity extends AppCompatActivity {
             }
             String timeRange = String.format("%02d.%02d - %02d.%02d", startHour, startMin, endHour, endMin);
 
-            // Menyatukan list aksesoris addon ke dalam kalimat teks
-            StringBuilder addonsBuilder = new StringBuilder();
-            if (addonsList != null && !addonsList.isEmpty()) {
-                for (int i = 0; i < addonsList.size(); i++) {
-                    addonsBuilder.append(addonsList.get(i));
-                    if (i < addonsList.size() - 1) addonsBuilder.append(", ");
-                }
-            } else {
-                addonsBuilder.append("Tanpa Aksesoris");
-            }
+            String subtitle = shape + " • " + length + " • " + colorType;
 
-            // Gabungkan data pilihan asli ke string deskripsi subtitle
-            String subtitle = shape + " • " + length + " • " + colorType + " (" + addonsBuilder.toString() + ")";
-            String bookingId = UUID.randomUUID().toString();
-
-            SharedPreferences prefs = getSharedPreferences("SimpleBookingData", MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
-
-            editor.putString(bookingId + "_date", day);
-            editor.putString(bookingId + "_month", monthName);
-            editor.putString(bookingId + "_title", "Custom Nail");
-            editor.putString(bookingId + "_subtitle", subtitle);
-            editor.putString(bookingId + "_time", timeRange);
-            editor.putString(bookingId + "_artist", "Nut (Top Artist)");
-            editor.putString(bookingId + "_status", "Confirmed");
-            editor.putString(bookingId + "_colorHex", colorHex);
-
-            String existingIds = prefs.getString("booking_ids", "");
-            String newIds = existingIds + (existingIds.isEmpty() ? "" : ",") + bookingId;
-            editor.putString("booking_ids", newIds);
-
-            boolean success = editor.commit();
-
-            if (success) {
-                Toast.makeText(this, "Booking sukses!", Toast.LENGTH_SHORT).show();
+            SharedPreferences prefs = getSharedPreferences("FinalBookingData", MODE_PRIVATE);
+            String existingJson = prefs.getString("bookings_list", "[]");
+            try {
+                JSONArray bookingsArray = new JSONArray(existingJson);
+                JSONObject newBooking = new JSONObject();
+                newBooking.put("date", day);
+                newBooking.put("month", monthName);
+                newBooking.put("title", "Custom Nail");
+                newBooking.put("subtitle", subtitle);
+                newBooking.put("time", timeRange);
+                newBooking.put("artist", "Nut (Top Artist)");
+                newBooking.put("status", "Confirmed");
+                newBooking.put("colorHex", colorHex);
+                bookingsArray.put(newBooking);
+                prefs.edit().putString("bookings_list", bookingsArray.toString()).apply();
+                Toast.makeText(this, "Booking berhasil! Warna: " + colorHex, Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Gagal simpan", Toast.LENGTH_SHORT).show();
             }
 
             Intent homeIntent = new Intent(BookingAppointmentActivity.this, MainNavigationActivity.class);

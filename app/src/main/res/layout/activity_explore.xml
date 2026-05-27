@@ -196,8 +196,10 @@
             android:layout_height="wrap_content"
             android:columnCount="2"
             android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false">
+            android:columnOrderPreserved="false"
+            android:rowOrderPreserved="false">
 
+            <!-- Item 1: nail1.jpg -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="220dp"
@@ -227,7 +229,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/img_n1"
-                        android:text="Dreamy Lavender"
+                        android:text="Midnight Blue"
                         android:paddingLeft="14dp"
                         android:paddingTop="10dp"
                         android:textColor="#1A1C29"
@@ -237,7 +239,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/title_n1"
-                        android:text="Rp 95.000"
+                        android:text="Rp 90.000"
                         android:paddingLeft="14dp"
                         android:textColor="#8A8A93"
                         android:fontFamily="@font/poppins_medium"
@@ -245,6 +247,7 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Item 2: nail2.jpg -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="220dp"
@@ -274,7 +277,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/img_n2"
-                        android:text="Bluey Pink"
+                        android:text="Blue Petal"
                         android:paddingLeft="14dp"
                         android:paddingTop="10dp"
                         android:textColor="#1A1C29"
@@ -284,7 +287,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/title_n2"
-                        android:text="Rp 85.000"
+                        android:text="Rp 90.000"
                         android:paddingLeft="14dp"
                         android:textColor="#8A8A93"
                         android:fontFamily="@font/poppins_medium"
@@ -292,6 +295,7 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Item 3: nail3.jpg -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="220dp"
@@ -331,7 +335,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/title_n3"
-                        android:text="Rp 85.000"
+                        android:text="Rp 95.000"
                         android:paddingLeft="14dp"
                         android:textColor="#8A8A93"
                         android:fontFamily="@font/poppins_medium"
@@ -339,6 +343,7 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Item 4: nail4.jpg -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="220dp"
@@ -368,7 +373,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/img_n4"
-                        android:text="Red Glossy"
+                        android:text="Red Scarlet"
                         android:paddingLeft="14dp"
                         android:paddingTop="10dp"
                         android:textColor="#1A1C29"
@@ -378,7 +383,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/title_n4"
-                        android:text="Rp 80.000"
+                        android:text="Rp 100.000"
                         android:paddingLeft="14dp"
                         android:textColor="#8A8A93"
                         android:fontFamily="@font/poppins_medium"
@@ -386,6 +391,7 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Item 5: nail5.jpg -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="220dp"
@@ -415,7 +421,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/img_n5"
-                        android:text="Aurora Pearl"
+                        android:text="Pink Glaze"
                         android:paddingLeft="14dp"
                         android:paddingTop="10dp"
                         android:textColor="#1A1C29"
@@ -433,6 +439,199 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Item 6: nail6.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n6"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail6"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n6"
+                        android:text="Sweet Pink"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n6"
+                        android:text="Rp 80.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 7: nail7.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n7"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail7"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n7"
+                        android:text="Simple White Blue"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n7"
+                        android:text="Rp 80.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 8: nail8.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n8"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail8"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n8"
+                        android:text="Pink Rose"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n8"
+                        android:text="Rp 100.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 9: nail9.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n9"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail9"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n9"
+                        android:text="Blush Petal"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n9"
+                        android:text="Rp 95.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 10: nail10.jpg -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="220dp"
@@ -462,7 +661,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/img_n10"
-                        android:text="Sweet Lavender"
+                        android:text="Mocha Cream"
                         android:paddingLeft="14dp"
                         android:paddingTop="10dp"
                         android:textColor="#1A1C29"
@@ -479,7 +678,7 @@
                         android:textSize="12sp"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
+            <!-- Item 11: nail11.jpg -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="220dp"
@@ -509,7 +708,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/img_n11"
-                        android:text="Milky White"
+                        android:text="Red Cherry"
                         android:paddingLeft="14dp"
                         android:paddingTop="10dp"
                         android:textColor="#1A1C29"
@@ -519,7 +718,631 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/title_n11"
-                        android:text="Rp 75.000"
+                        android:text="Rp 90.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 12: nail12.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n12"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail12"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n12"
+                        android:text="Midnight Blue"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n12"
+                        android:text="Rp 90.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 13: nail13.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n13"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail13"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n13"
+                        android:text="Blue Haze"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n11"
+                        android:text="Rp 95.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 14: nail14.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n14"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail14"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n14"
+                        android:text="oyale Brown"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n14"
+                        android:text="Rp 90.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 15: nail15.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n15"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail15"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n15"
+                        android:text="Silver Mist"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n15"
+                        android:text="Rp 85.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 16: nail16.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n16"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail16"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n16"
+                        android:text="Red Bow"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n16"
+                        android:text="Rp 80.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 17: nail17.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n17"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail17"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n17"
+                        android:text="Golden Muse"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n17"
+                        android:text="Rp 80.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 18: nail18.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n18"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail18"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n18"
+                        android:text="Frosted Blue"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n18"
+                        android:text="Rp 80.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 19: nail19.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n19"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail19"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n19"
+                        android:text="Red Aurora"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n19"
+                        android:text="Rp 90.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 20: nail20.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n20"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail20"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n20"
+                        android:text="Pink Mirage"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n20"
+                        android:text="Rp 90.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 21: nail21.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n21"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail21"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n21"
+                        android:text="Milky Red"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n21"
+                        android:text="Rp 85.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 22: nail22.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n22"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail22"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n22"
+                        android:text="Nude Luxe"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n22"
+                        android:text="Rp 85.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 23: nail23.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n23"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail23"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n23"
+                        android:text="Peach Aura"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n23"
+                        android:text="Rp 90.000"
+                        android:paddingLeft="14dp"
+                        android:textColor="#8A8A93"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Item 24: nail24.jpg -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_n24"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:src="@drawable/nail24"
+                        android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#FFFFFF"/>
+                    <TextView
+                        android:id="@+id/title_n24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_n24"
+                        android:text="Flower Chrome"
+                        android:paddingLeft="14dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#1A1C29"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_n24"
+                        android:text="Rp 95.000"
                         android:paddingLeft="14dp"
                         android:textColor="#8A8A93"
                         android:fontFamily="@font/poppins_medium"

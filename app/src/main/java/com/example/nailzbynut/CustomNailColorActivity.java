@@ -1,5 +1,6 @@
 package com.example.nailzbynut;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -44,6 +45,7 @@ public class CustomNailColorActivity extends AppCompatActivity {
     private final ArrayList<NailColor> frenchList = new ArrayList<>();
     private final ArrayList<NailColor> catEyeList = new ArrayList<>();
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -278,7 +280,7 @@ public class CustomNailColorActivity extends AppCompatActivity {
         generateColorPalette(targetList);
 
         if (!targetList.isEmpty()) {
-            selectedColorHex = targetList[0].getHex();
+            selectedColorHex = targetList.get(0).getHex();
         }
     }
 

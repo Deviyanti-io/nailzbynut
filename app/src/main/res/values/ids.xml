@@ -102,4 +102,26 @@
     <item name="tv_size_middle" type="id" />
     <item name="tv_size_index" type="id" />
     <item name="tv_review_color" type="id" />
+    <item name="color_grid" type="id" />
+    <item name="btn_minus_index" type="id" />
+    <item name="btn_plus_index" type="id" />
+    <item name="btn_minus_middle" type="id" />
+    <item name="btn_plus_middle" type="id" />
+    <item name="btn_minus_ring" type="id" />
+    <item name="btn_plus_ring" type="id" />
+    <item name="btn_minus_pinky" type="id" />
+    <item name="btn_plus_pinky" type="id" />
+    <item name="tv_val_index" type="id" />
+    <item name="tv_val_middle" type="id" />
+    <item name="tv_val_ring" type="id" />
+    <item name="tv_val_pinky" type="id" />
+    <item name="layout_home_page" type="id" />
+    <item name="layout_profile_page" type="id" />
+    <item name="tv_welcome_user" type="id" />
+    <item name="tv_profile_name" type="id" />
+    <item name="tv_profile_email" type="id" />
+    <item name="menu_gel_nail" type="id" />
+    <item name="menu_press_on_nail" type="id" />
+    <item name="menu_manicure" type="id" />
+    <item name="btn_logout" type="id" />
 </resources>
