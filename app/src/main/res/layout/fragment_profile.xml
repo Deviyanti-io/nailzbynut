@@ -3,192 +3,433 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F9FF"
-    android:fillViewport="true"
-    android:scrollbars="none">
+    android:background="#F9F8FF">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp"
-        android:paddingBottom="40dp">
-
-        <!-- PROFILE HEADER -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:cardCornerRadius="50dp"
-                app:cardElevation="0dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/nail1" />
-
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/tvUserName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nutty Nailz"
-                android:textSize="22sp"
-                android:textColor="#222222"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/fredoka_bold" />
-
-            <TextView
-                android:id="@+id/tvUserEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="nutty.nailz@gmail.com"
-                android:textColor="#777777"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_regular" />
-
-        </LinearLayout>
-
-        <!-- GOLD MEMBER CARD -->
+        android:padding="20dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/gold_member">
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="3dp"
+            android:backgroundTint="#FFFFFF">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:padding="20dp">
 
-                <TextView
-                    android:id="@+id/tvMemberStatus"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Gold Member"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/poppins_bold" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1.250 pts"
-                    android:textColor="#FFFFFF"
-                    android:layout_alignParentEnd="true"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/poppins_bold" />
+                    <FrameLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tvMemberStatus"
-                    android:layout_marginTop="8dp"
-                    android:text="Kamu punya 5 voucher gratis bulan ini! ✨"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/poppins_regular" />
+                        <ImageView
+                            android:id="@+id/imgProfile"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:background="@drawable/circle_bg"
+                            android:padding="3dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/for_you"/>
 
-            </RelativeLayout>
+                        <ImageView
+                            android:id="@+id/btnCamera"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="bottom|end"
+                            android:background="@drawable/bg_circle_color"
+                            android:backgroundTint="#988DE4"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_brush"
+                            app:tint="#FFFFFF"/>
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_greeting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hi, Putri Deviyanti 👋"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="#333333"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/txtName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Putri Deviyanti"
+                            android:fontFamily="@font/fredoka_bold"
+                            android:textColor="#1A1C29"
+                            android:textSize="24sp"
+                            android:textStyle="bold"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/ic_profile"
+                                app:tint="#9A95C7"/>
+
+                            <TextView
+                                android:id="@+id/txtEmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="deviyanti@instiki.ac.id"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#6E6794"
+                                android:textSize="14sp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/ic_setting"
+                                app:tint="#9A95C7"/>
+
+                            <TextView
+                                android:id="@+id/txtPhone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="+62 812-3456-7890"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#6E6794"
+                                android:textSize="14sp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/memberCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_card_rounded"
+                    android:backgroundTint="#E5DEFF"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/iv_member_icon"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_spa" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/iv_member_icon"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nailz Member"
+                            android:textColor="#2A2254"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/poppins_medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Member sejak Maret 2024"
+                            android:textColor="#6E659E"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/poppins_medium"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtMember"
+                        android:layout_width="85dp"
+                        android:layout_height="36dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_button_rounded"
+                        android:backgroundTint="#988DE4"
+                        android:gravity="center"
+                        android:text="Silver"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_medium"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <!-- MENU -->
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="2dp"
+            android:backgroundTint="#FFFFFF">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="14dp"
-                android:text="My Profile"
-                android:gravity="center_vertical"
-                android:drawableEnd="@android:drawable/ic_media_next"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="#222222"
-                android:textSize="15sp" />
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#EEEEEE" />
+                <LinearLayout
+                    android:id="@+id/menuEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:clickable="true"
+                    android:focusable="true">
 
-            <TextView
-                android:id="@+id/menuBooking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="14dp"
-                android:text="My Bookings"
-                android:gravity="center_vertical"
-                android:drawableEnd="@android:drawable/ic_media_next"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="#222222"
-                android:textSize="15sp" />
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_color"
+                        android:backgroundTint="#EBE9FF"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_profile"
+                        app:tint="#7F77CE"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#EEEEEE" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:text="Edit Profil"
+                        android:textColor="#1A1C29"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_medium"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="14dp"
-                android:text="Vouchers &amp; Promo"
-                android:gravity="center_vertical"
-                android:drawableEnd="@android:drawable/ic_media_next"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="#222222"
-                android:textSize="15sp" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_down"
+                        android:rotation="270"
+                        app:tint="#555555"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#EEEEEE" />
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="14dp"
-                android:text="Settings"
-                android:gravity="center_vertical"
-                android:drawableEnd="@android:drawable/ic_media_next"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="#222222"
-                android:textSize="15sp" />
+                <LinearLayout
+                    android:id="@+id/menuWishlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:clickable="true"
+                    android:focusable="true">
 
-        </LinearLayout>
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_color"
+                        android:backgroundTint="#EBE9FF"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_heart_off"
+                        app:tint="#7F77CE"/>
 
-        <!-- SIGN OUT BUTTON -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:text="Wishlist"
+                        android:textColor="#1A1C29"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_medium"/>
 
-        <Button
-            android:id="@+id/btnSignOut"
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_down"
+                        android:rotation="270"
+                        app:tint="#555555"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/menuTreatment"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_color"
+                        android:backgroundTint="#EBE9FF"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_history"
+                        app:tint="#7F77CE"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:text="My Treatment"
+                        android:textColor="#1A1C29"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_medium"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_down"
+                        android:rotation="270"
+                        app:tint="#555555"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/menuSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_color"
+                        android:backgroundTint="#EBE9FF"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_setting"
+                        app:tint="#7F77CE"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:text="Pengaturan"
+                        android:textColor="#1A1C29"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_medium"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_down"
+                        android:rotation="270"
+                        app:tint="#555555"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:text="SIGN OUT"
-            android:textAllCaps="false"
-            android:textColor="#FF5252"
-            android:textSize="14sp"
-            android:backgroundTint="#FFEBEB"
-            android:fontFamily="@font/poppins_bold" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="2dp"
+            android:backgroundTint="#FFFFFF">
 
+            <LinearLayout
+                android:id="@+id/menuLogout"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/tv_logout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:text="Log Out"
+                    android:textColor="#FF2A55"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"/>
+
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/bg_circle_color"
+                    android:backgroundTint="#FFE6EB"
+                    android:padding="11dp"
+                    android:src="@drawable/ic_arrow_down"
+                    android:rotation="270"
+                    app:tint="#FF2A55" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/background_card"
+            app:itemIconTint="@color/lavender_dark"
+            app:itemTextColor="@color/lavender_dark"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu"
+            android:elevation="8dp" />
     </LinearLayout>
-
 </ScrollView>

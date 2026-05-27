@@ -27,12 +27,15 @@
                 android:fontFamily="@font/fredoka_bold"
                 android:layout_centerVertical="true"/>
             <ImageView
+                android:id="@+id/btn_heart_top"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/ic_heart_off"
                 android:layout_centerVertical="true"
-                app:tint="#1A1C29"/>
+                app:tint="#1A1C29"
+                android:clickable="true"
+                android:focusable="true"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -733,7 +736,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/img_n14"
-                        android:text="oyale Brown"
+                        android:text="Royale Brown"
                         android:paddingLeft="14dp"
                         android:paddingTop="10dp"
                         android:textColor="#1A1C29"
@@ -1233,4 +1236,15 @@
 
         </GridLayout>
     </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/background_card"
+        app:itemIconTint="@color/lavender_dark"
+        app:itemTextColor="@color/lavender_dark"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
+        android:elevation="8dp" />
 </RelativeLayout>

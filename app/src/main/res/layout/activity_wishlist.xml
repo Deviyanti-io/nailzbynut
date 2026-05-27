@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F8FF"
+    android:padding="20dp">
+
+    <!-- HEADER BAR (Tombol Back di Kiri, Judul Presisi di Tengah) -->
+    <RelativeLayout
+        android:id="@+id/layout_header_wishlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+        <!-- Tombol Back tetap terkunci di sebelah kiri ujung -->
+        <ImageView
+            android:id="@+id/btn_back_wishlist"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back"
+            android:rotation="0"
+            android:padding="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            app:tint="#1A1C29"/>
+
+        <!-- Judul Halaman otomatis presisi di tengah layar -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="My Wishlist 💗"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/fredoka_bold"/>
+
+    </RelativeLayout>
+
+    <!-- DAFTAR RECYCLERVIEW (Muncul jika ada data) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_wishlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_header_wishlist"
+        android:scrollbars="vertical"
+        android:visibility="gone"/>
+
+    <!-- TAMPILAN KOSONG / EMPTY STATE (Muncul jika wishlist kosong) -->
+    <LinearLayout
+        android:id="@+id/layout_empty_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_heart_off"
+            app:tint="#D0CBEA"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wishlist Kamu Kosong"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jelajahi desain kuku cantik di menu Explore\ndan ketuk ikon hati untuk menyimpannya di sini!"
+            android:textColor="#8A85A8"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:maxWidth="280dp"
+            android:fontFamily="@font/poppins_medium"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

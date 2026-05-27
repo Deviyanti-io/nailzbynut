@@ -69,7 +69,7 @@ public class HistoryActivity extends AppCompatActivity {
             } else if (id == R.id.nav_history) {
                 return true;
             } else if (id == R.id.nav_profile) {
-                startActivity(new Intent(this, ProfileActivity.class));
+                startActivity(new Intent(this, ProfileFragment.class));
                 return true;
             }
             return false;

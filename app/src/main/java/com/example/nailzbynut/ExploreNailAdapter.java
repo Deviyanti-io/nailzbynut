@@ -1,4 +1,4 @@
-package com.example.nailzbynut; // Sesuaikan dengan nama package proyekmu
+package com.example.nailzbynut;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +21,7 @@ public class ExploreNailAdapter extends RecyclerView.Adapter<ExploreNailAdapter.
     // Menghubungkan komponen UI yang ada di dalam item_nail.xml
     public static class NailViewHolder extends RecyclerView.ViewHolder {
         ImageView ivNailImage;
+        ImageView btnHeart; // Menambahkan deklarasi untuk tombol heart agar tidak merah
         TextView tvNailName;
         TextView tvNailPrice;
 
@@ -29,6 +30,7 @@ public class ExploreNailAdapter extends RecyclerView.Adapter<ExploreNailAdapter.
             ivNailImage = view.findViewById(R.id.ivNailImage);
             tvNailName = view.findViewById(R.id.tvNailName);
             tvNailPrice = view.findViewById(R.id.tvNailPrice);
+            btnHeart = view.findViewById(R.id.heart_n1); // Sesuaikan ID ini dengan ID icon heart di item_nail.xml Anda
         }
     }
 
@@ -40,13 +42,33 @@ public class ExploreNailAdapter extends RecyclerView.Adapter<ExploreNailAdapter.
         return new NailViewHolder(view);
     }
 
-    // Mengisi komponen UI dengan data kuku berdasarkan urutan posisinya
     @Override
     public void onBindViewHolder(@NonNull NailViewHolder holder, int position) {
-        NailModel nail = nailList.get(position);
-        holder.tvNailName.setText(nail.getName());
-        holder.tvNailPrice.setText(nail.getPrice());
-        holder.ivNailImage.setImageResource(nail.getImageResourceId());
+        // PERBAIKAN: Mengubah wishlistList menjadi nailList sesuai variabel yang dideklarasikan di atas
+        NailModel model = nailList.get(position);
+
+        // PERBAIKAN: Menyesuaikan pemanggilan nama komponen UI dengan yang ada di NailViewHolder
+        holder.tvNailName.setText(model.getName());
+        holder.tvNailPrice.setText(model.getPrice());
+        holder.ivNailImage.setImageResource(model.getImageResId());
+
+        // Logika status favorit
+        if (model.isFavorite()) {
+            holder.btnHeart.setImageResource(R.drawable.ic_heart_on);
+        } else {
+            holder.btnHeart.setImageResource(R.drawable.ic_heart_off);
+        }
+
+        // Aksi ketika tombol heart diklik
+        holder.btnHeart.setOnClickListener(v -> {
+            if (model.isFavorite()) {
+                model.setFavorite(false);
+                holder.btnHeart.setImageResource(R.drawable.ic_heart_off);
+            } else {
+                model.setFavorite(true);
+                holder.btnHeart.setImageResource(R.drawable.ic_heart_on);
+            }
+        });
     }
 
     @Override

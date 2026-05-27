@@ -124,4 +124,29 @@
     <item name="menu_press_on_nail" type="id" />
     <item name="menu_manicure" type="id" />
     <item name="btn_logout" type="id" />
+    <item name="btn_heart_top" type="id" />
+    <item name="heart_n1" type="id" />
+    <item name="heart_n2" type="id" />
+    <item name="heart_n3" type="id" />
+    <item name="heart_n4" type="id" />
+    <item name="heart_n5" type="id" />
+    <item name="heart_n6" type="id" />
+    <item name="heart_n7" type="id" />
+    <item name="heart_n8" type="id" />
+    <item name="heart_n9" type="id" />
+    <item name="heart_n10" type="id" />
+    <item name="heart_n11" type="id" />
+    <item name="heart_n12" type="id" />
+    <item name="heart_n13" type="id" />
+    <item name="heart_n14" type="id" />
+    <item name="heart_n15" type="id" />
+    <item name="heart_n16" type="id" />
+    <item name="heart_n17" type="id" />
+    <item name="heart_n18" type="id" />
+    <item name="heart_n19" type="id" />
+    <item name="heart_n20" type="id" />
+    <item name="heart_n21" type="id" />
+    <item name="heart_n22" type="id" />
+    <item name="heart_n23" type="id" />
+    <item name="heart_n24" type="id" />
 </resources>
