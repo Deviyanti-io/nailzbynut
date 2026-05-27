@@ -7,8 +7,10 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,8 +27,7 @@ public class CustomNailColorActivity extends AppCompatActivity {
     private Button btnTypeSolid, btnTypeGradient, btnTypeFrench, btnTypeCatEye;
     private LinearLayout btnGlossy, btnMatte, btnChrome, btnGlitter;
     private LinearLayout btnUploadPhoto;
-
-    private View[] circles = new View[29];
+    private GridLayout colorGrid;
 
     private String selectedColorType = "Solid";
     private String selectedColorHex = "#D6001C";
@@ -37,36 +38,18 @@ public class CustomNailColorActivity extends AppCompatActivity {
     private String selectedImageUriString = "";
     private ActivityResultLauncher<Intent> galleryLauncher;
 
-    private final String[] solidList = {
-            "#000000", "#F2F0EB", "#D6001C", "#C4C2C0", "#D9A05B", "#F5D6C4", "#F5D1BC", "#E8A7B5", "#F7A399", "#E394A4",
-            "#BA7EA9", "#4E2B6B", "#731822", "#E04D79", "#8F63A8", "#78388C", "#DED2F9", "#E8C5E5", "#8F8073", "#D1BCB2",
-            "#008EA6", "#0B4273", "#9ED463", "#8B5A2B", "#118199", "#0F6E85", "#08576B", "#5785A6", "#1C364A"
-    };
-
-    private final String[] gradientList = {
-            "#FF9A9E", "#FECFEF", "#A1C4FD", "#C2E9FB", "#F6D365", "#FDA085", "#E0C3FC", "#8EC5FC", "#84FAB0", "#8FD3F4",
-            "#FFECD2", "#FCB69F", "#CFD9DF", "#E2EBEE", "#FFF1EB", "#ACE0F9", "#ACCBEE", "#E7F0FD", "#E0F7FA", "#FFF9C4",
-            "#FFE082", "#FFD54F", "#FFC0CB", "#FFB6C1", "#B2FEFA", "#00C9FF", "#92FE9D", "#0575E6", "#FC466B"
-    };
-
-    private final String[] frenchList = {
-            "#FFFFFF", "#FFE4E1", "#F5F5DC", "#FFD700", "#000000", "#E6E6FA", "#B0E0E6", "#FFB6C1", "#FFF8DC", "#E0FFFF",
-            "#FAF0E6", "#D8BFD8", "#FFF0F5", "#FAEBD7", "#F0F8FF", "#F8F8FF", "#F0FFF0", "#FFFFF0", "#F0FFFF", "#FFF5EE",
-            "#F5FFFA", "#F0F0F3", "#E8E8E8", "#DCDCDC", "#B5B5B5", "#CCCCCC", "#EAEAEA", "#D3D3D3", "#C0C0C0"
-    };
-
-    private final String[] catEyeList = {
-            "#2E1A47", "#1A2E40", "#1A402E", "#403A1A", "#401A1A", "#331A47", "#1A3347", "#1A4733", "#473B1A", "#471A1A",
-            "#3D1F5A", "#1F3D5A", "#1F5A3D", "#5A4A1F", "#5A1F1F", "#4A1F5A", "#1F4A5A", "#1F5A4A", "#5A521F", "#5A1F2D",
-            "#5C2E8A", "#2E5C8A", "#2E8A5C", "#8A732E", "#8A2E2E", "#732E8A", "#2E738A", "#2E8A73", "#8A7E2E"
-    };
+    // Kumpulan Data Palet Warna Berwarna Indah Beserta Namanya
+    private final ArrayList<NailColor> solidList = new ArrayList<>();
+    private final ArrayList<NailColor> gradientList = new ArrayList<>();
+    private final ArrayList<NailColor> frenchList = new ArrayList<>();
+    private final ArrayList<NailColor> catEyeList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_nail_color);
 
-        // 1. KUNCI UTAMA: Daftarkan launcher di baris paling atas onCreate agar Lifecycle aman
+        // Register launcher di awal Lifecycle agar aman
         galleryLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -80,7 +63,7 @@ public class CustomNailColorActivity extends AppCompatActivity {
                 }
         );
 
-        // 2. Tangkap data dari halaman sebelumnya
+        // Ambil data estafet dari halaman sebelumnya
         if (getIntent().getStringExtra("SHAPE_DATA") != null) {
             dataShape = getIntent().getStringExtra("SHAPE_DATA");
         }
@@ -88,7 +71,7 @@ public class CustomNailColorActivity extends AppCompatActivity {
             dataLength = getIntent().getStringExtra("LENGTH_DATA");
         }
 
-        // 3. Inisialisasi komponen UI
+        // Inisialisasi komponen UI
         btnTypeSolid = findViewById(R.id.btn_type_solid);
         btnTypeGradient = findViewById(R.id.btn_type_gradient);
         btnTypeFrench = findViewById(R.id.btn_type_french);
@@ -102,20 +85,24 @@ public class CustomNailColorActivity extends AppCompatActivity {
 
         btnBack = findViewById(R.id.btn_back_color);
         btnNext = findViewById(R.id.btn_next_color);
+        colorGrid = findViewById(R.id.color_grid);
 
-        initCircleViews();
+        // Isi dan strukturkan data warna
+        populateColorData();
+
         btnBack.setOnClickListener(v -> finish());
 
+        // Set state default awal halaman
         updateColorTypeState("Solid");
         updateFinishState("Glossy");
 
-        // Setup click listener untuk tipe finish coat
+        // Click listener tipe finish coat
         btnGlossy.setOnClickListener(v -> updateFinishState("Glossy"));
         btnMatte.setOnClickListener(v -> updateFinishState("Matte"));
         btnChrome.setOnClickListener(v -> updateFinishState("Chrome"));
         btnGlitter.setOnClickListener(v -> updateFinishState("Glitter"));
 
-        // Setup aksesoris tambahan
+        // Setup aksesoris tambahan (Add-ons) kembali diaktifkan lengkap
         setupAddonToggle(findViewById(R.id.addon_charms), "Charms");
         setupAddonToggle(findViewById(R.id.addon_pearls), "Pearls");
         setupAddonToggle(findViewById(R.id.addon_rhinestone), "Rhinestone");
@@ -137,19 +124,19 @@ public class CustomNailColorActivity extends AppCompatActivity {
             });
         }
 
-        // Setup click listener untuk kategori tipe kuku
+        // Setup click listener kategori tipe kuku
         btnTypeSolid.setOnClickListener(v -> updateColorTypeState("Solid"));
         btnTypeGradient.setOnClickListener(v -> updateColorTypeState("Ombre"));
         btnTypeFrench.setOnClickListener(v -> updateColorTypeState("French Tip"));
         btnTypeCatEye.setOnClickListener(v -> updateColorTypeState("Cat Eye"));
 
-        // Kirim estafet data ke halaman detail ukuran kuku
+        // Tombol next mengirimkan estafet data secara aman tanpa kehilangan data shape/length
         btnNext.setOnClickListener(v -> {
             Intent intent = new Intent(CustomNailColorActivity.this, CustomNailDetailsActivity.class);
             intent.putExtra("SHAPE_DATA", dataShape);
             intent.putExtra("LENGTH_DATA", dataLength);
             intent.putExtra("COLOR_TYPE_DATA", selectedColorType);
-            intent.putExtra("COLOR_HEX_DATA", selectedColorHex); // Mengirim hex warna pilihan asli konsumen
+            intent.putExtra("COLOR_HEX_DATA", selectedColorHex);
             intent.putExtra("FINISH_DATA", selectedFinish);
             intent.putStringArrayListExtra("ADDONS_DATA", selectedAddonsList);
             intent.putExtra("UPLOADED_IMAGE_DATA", selectedImageUriString);
@@ -157,23 +144,112 @@ public class CustomNailColorActivity extends AppCompatActivity {
         });
     }
 
-    private void initCircleViews() {
-        int[] ids = {R.id.c_001, R.id.c_002, R.id.c_003, R.id.c_004, R.id.c_005, R.id.c_006, R.id.c_007, R.id.c_008, R.id.c_009,
-                R.id.c_010, R.id.c_011, R.id.c_012, R.id.c_013, R.id.c_014, R.id.c_015, R.id.c_016, R.id.c_017, R.id.c_018,
-                R.id.c_019, R.id.c_020, R.id.c_021, R.id.c_022, R.id.c_023, R.id.c_024, R.id.c_025, R.id.c_026, R.id.c_027,
-                R.id.c_028, R.id.c_029};
-        for (int i = 0; i < ids.length; i++) {
-            circles[i] = findViewById(ids[i]);
-            final int index = i;
-            if (circles[i] != null) {
-                circles[i].setOnClickListener(v -> {
-                    String[] currentList = selectedColorType.equals("Solid") ? solidList :
-                            selectedColorType.equals("Ombre") ? gradientList :
-                                    selectedColorType.equals("French Tip") ? frenchList : catEyeList;
-                    selectedColorHex = currentList[index];
-                    Toast.makeText(this, "Warna dipilih: " + selectedColorHex, Toast.LENGTH_SHORT).show();
-                });
+    private void populateColorData() {
+        // 1. Solid Colors
+        solidList.add(new NailColor("Black", "#000000"));
+        solidList.add(new NailColor("Milk White", "#F2F0EB"));
+        solidList.add(new NailColor("Cherry Red", "#D6001C"));
+        solidList.add(new NailColor("Silver", "#C4C2C0"));
+        solidList.add(new NailColor("Caramel", "#D9A05B"));
+        solidList.add(new NailColor("Peach Nude", "#F5D6C4"));
+        solidList.add(new NailColor("Soft Peach", "#F5D1BC"));
+        solidList.add(new NailColor("Rose Pink", "#E8A7B5"));
+        solidList.add(new NailColor("Coral", "#F7A399"));
+        solidList.add(new NailColor("Dusty Pink", "#E394A4"));
+        solidList.add(new NailColor("Mauve", "#BA7EA9"));
+        solidList.add(new NailColor("Dark Purple", "#4E2B6B"));
+        solidList.add(new NailColor("Wine Red", "#731822"));
+        solidList.add(new NailColor("Hot Pink", "#E04D79"));
+        solidList.add(new NailColor("Lavender", "#8F63A8"));
+        solidList.add(new NailColor("Royal Purple", "#78388C"));
+        solidList.add(new NailColor("Pastel Lavender", "#DED2F9"));
+        solidList.add(new NailColor("Soft Lilac", "#E8C5E5"));
+        solidList.add(new NailColor("Taupe", "#8F8073"));
+        solidList.add(new NailColor("Nude Beige", "#D1BCB2"));
+        solidList.add(new NailColor("Ocean Blue", "#008EA6"));
+        solidList.add(new NailColor("Navy Blue", "#0B4273"));
+        solidList.add(new NailColor("Lime Green", "#9ED463"));
+        solidList.add(new NailColor("Brown", "#8B5A2B"));
+        solidList.add(new NailColor("Teal", "#118199"));
+        solidList.add(new NailColor("Deep Teal", "#0F6E85"));
+        solidList.add(new NailColor("Dark Cyan", "#08576B"));
+        solidList.add(new NailColor("Denim Blue", "#5785A6"));
+        solidList.add(new NailColor("Midnight Blue", "#1C364A"));
+
+        // 2. Ombre / Gradient Colors
+        gradientList.add(new NailColor("Blush Pink", "#FF9A9E"));
+        gradientList.add(new NailColor("Orchid", "#FECFEF"));
+        gradientList.add(new NailColor("Sky Blue", "#A1C4FD"));
+        gradientList.add(new NailColor("Ice Gradient", "#C2E9FB"));
+        gradientList.add(new NailColor("Sunset Gel", "#F6D365"));
+        gradientList.add(new NailColor("Melon Candy", "#FDA085"));
+        gradientList.add(new NailColor("Lilac Dream", "#E0C3FC"));
+        gradientList.add(new NailColor("Soft Ocean", "#8EC5FC"));
+        gradientList.add(new NailColor("Mint Fresh", "#84FAB0"));
+        gradientList.add(new NailColor("Aqua Bloom", "#8FD3F4"));
+
+        // 3. French Tip Colors
+        frenchList.add(new NailColor("Classic White", "#FFFFFF"));
+        frenchList.add(new NailColor("Rose Petal", "#FFE4E1"));
+        frenchList.add(new NailColor("Beige Silk", "#F5F5DC"));
+        frenchList.add(new NailColor("Gold Line", "#FFD700"));
+        frenchList.add(new NailColor("Deep Onyx", "#000000"));
+        frenchList.add(new NailColor("Soft Violet", "#E6E6FA"));
+        frenchList.add(new NailColor("Powder Blue", "#B0E0E6"));
+        frenchList.add(new NailColor("Blossom", "#FFB6C1"));
+
+        // 4. Cat Eye Colors
+        catEyeList.add(new NailColor("Galaxy Velvet", "#2E1A47"));
+        catEyeList.add(new NailColor("Deep Cosmic", "#1A2E40"));
+        catEyeList.add(new NailColor("Jade Magnetic", "#1A402E"));
+        catEyeList.add(new NailColor("Amber Flare", "#403A1A"));
+        catEyeList.add(new NailColor("Ruby Laser", "#401A1A"));
+        catEyeList.add(new NailColor("Nebula Purple", "#331A47"));
+    }
+
+    private void generateColorPalette(ArrayList<NailColor> colors) {
+        colorGrid.removeAllViews();
+
+        for (NailColor color : colors) {
+            LinearLayout item = new LinearLayout(this);
+            item.setOrientation(LinearLayout.VERTICAL);
+            item.setGravity(Gravity.CENTER);
+
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.setMargins(16, 16, 16, 16);
+            item.setLayoutParams(params);
+
+            View circle = new View(this);
+            // Mengatur ukuran lingkaran warna palet biar proporsional (90px x 90px)
+            LinearLayout.LayoutParams circleParams = new LinearLayout.LayoutParams(90, 90);
+            circle.setLayoutParams(circleParams);
+
+            GradientDrawable shape = new GradientDrawable();
+            shape.setShape(GradientDrawable.OVAL);
+            shape.setColor(Color.parseColor(color.getHex()));
+
+            // Beri border abu-abu tipis jika warnanya putih/sangat terang agar terlihat
+            if (color.getHex().equalsIgnoreCase("#FFFFFF") || color.getHex().equalsIgnoreCase("#F2F0EB")) {
+                shape.setStroke(2, Color.parseColor("#DDDDDD"));
             }
+            circle.setBackground(shape);
+
+            TextView tvName = new TextView(this);
+            tvName.setText(color.getName());
+            tvName.setTextSize(10);
+            tvName.setTextColor(Color.parseColor("#222222"));
+            tvName.setGravity(Gravity.CENTER);
+            tvName.setPadding(0, 8, 0, 0);
+
+            item.addView(circle);
+            item.addView(tvName);
+
+            item.setOnClickListener(v -> {
+                selectedColorHex = color.getHex();
+                Toast.makeText(this, "Warna dipilih: " + color.getName(), Toast.LENGTH_SHORT).show();
+            });
+
+            colorGrid.addView(item);
         }
     }
 
@@ -182,9 +258,7 @@ public class CustomNailColorActivity extends AppCompatActivity {
         Button[] tabs = {btnTypeSolid, btnTypeGradient, btnTypeFrench, btnTypeCatEye};
 
         for (Button b : tabs) {
-            if (b != null) {
-                setTabButtonStyle(b, "#FFFFFF", "#222222", false);
-            }
+            if (b != null) setTabButtonStyle(b, "#FFFFFF", "#222222", false);
         }
 
         Button active = btnTypeSolid;
@@ -196,15 +270,16 @@ public class CustomNailColorActivity extends AppCompatActivity {
             setTabButtonStyle(active, "#7A75F0", "#FFFFFF", true);
         }
 
-        String[] targetList = type.equals("Solid") ? solidList : type.equals("Ombre") ? gradientList : type.equals("French Tip") ? frenchList : catEyeList;
-        for (int i = 0; i < circles.length; i++) {
-            if (circles[i] != null) {
-                circles[i].setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(targetList[i])));
-            }
-        }
+        // Render palet berdasarkan tab kategori aktif secara dinamis
+        ArrayList<NailColor> targetList = type.equals("Solid") ? solidList :
+                type.equals("Ombre") ? gradientList :
+                        type.equals("French Tip") ? frenchList : catEyeList;
 
-        // Jaga agar warna default tab pertama mengikuti warna item ke-0 dari list aktif saat berpindah tab
-        selectedColorHex = targetList[0];
+        generateColorPalette(targetList);
+
+        if (!targetList.isEmpty()) {
+            selectedColorHex = targetList[0].getHex();
+        }
     }
 
     private void setTabButtonStyle(Button button, String bgColorHex, String textColorHex, boolean isActive) {
@@ -250,13 +325,11 @@ public class CustomNailColorActivity extends AppCompatActivity {
             gd.setColor(Color.parseColor("#7A75F0"));
             layout.setBackground(gd);
             if (textView != null) textView.setTextColor(Color.WHITE);
-            if (imageView != null) imageView.setColorFilter(null);
         } else {
             gd.setColor(Color.WHITE);
             gd.setStroke(2, Color.parseColor("#E0E0E0"));
             layout.setBackground(gd);
             if (textView != null) textView.setTextColor(Color.parseColor("#222222"));
-            if (imageView != null) imageView.setColorFilter(null);
         }
     }
 
@@ -277,11 +350,9 @@ public class CustomNailColorActivity extends AppCompatActivity {
     private void setAddonCardStyle(LinearLayout layout, boolean isActive) {
         if (layout == null) return;
         TextView textView = null;
-        ImageView imageView = null;
         for (int i = 0; i < layout.getChildCount(); i++) {
             View child = layout.getChildAt(i);
             if (child instanceof TextView) textView = (TextView) child;
-            if (child instanceof ImageView) imageView = (ImageView) child;
         }
         GradientDrawable gd = new GradientDrawable();
         gd.setShape(GradientDrawable.RECTANGLE);
@@ -290,13 +361,25 @@ public class CustomNailColorActivity extends AppCompatActivity {
             gd.setColor(Color.parseColor("#7A75F0"));
             layout.setBackground(gd);
             if (textView != null) textView.setTextColor(Color.WHITE);
-            if (imageView != null) imageView.setColorFilter(null);
         } else {
             gd.setColor(Color.WHITE);
             gd.setStroke(2, Color.parseColor("#E0E0E0"));
             layout.setBackground(gd);
             if (textView != null) textView.setTextColor(Color.parseColor("#222222"));
-            if (imageView != null) imageView.setColorFilter(null);
         }
+    }
+
+    // Helper Model Class agar tidak merusak struktur manifest/file luar
+    public static class NailColor {
+        private final String name;
+        private final String hex;
+
+        public NailColor(String name, String hex) {
+            this.name = name;
+            this.hex = hex;
+        }
+
+        public String getName() { return name; }
+        public String getHex() { return hex; }
     }
 }
